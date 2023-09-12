@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Saved-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SavedPage" id="Y6W-OH-hqX" customClass="SavedPage" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="DMW-ee-DGd">
+                                <rect key="frame" x="0.0" y="59" width="393" height="56"/>
+                                <color key="barTintColor" name="Background"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="3P3-FA-3M6"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3FM-Sz-nXs">
+                                <rect key="frame" x="0.0" y="115" width="393" height="654"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" name="Background"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SavedNewsCell" rowHeight="250" id="9eo-7c-Vgr" customClass="SavedNewsCell" customModule="NewsApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="250"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9eo-7c-Vgr" id="UH9-Qj-DHU">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="250"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image5" translatesAutoresizingMaskIntoConstraints="NO" id="orX-ma-KDO">
+                                                    <rect key="frame" x="20" y="11" width="353" height="228"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="250" id="uIE-5K-M9t"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biden Administration Moves to Bar Drilling on Millions of Acres in Alaska" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktg-D3-Vfc">
+                                                    <rect key="frame" x="28" y="159.33333333333334" width="337" height="71.666666666666657"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" name="Background"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ktg-D3-Vfc" secondAttribute="trailing" constant="8" id="6uc-e1-9Cf"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ktg-D3-Vfc" secondAttribute="bottom" constant="8" id="CLx-KH-dkF"/>
+                                                <constraint firstItem="orX-ma-KDO" firstAttribute="leading" secondItem="UH9-Qj-DHU" secondAttribute="leadingMargin" id="Zg0-IX-vI7"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="orX-ma-KDO" secondAttribute="bottom" id="jYC-cu-mZ9"/>
+                                                <constraint firstItem="ktg-D3-Vfc" firstAttribute="leading" secondItem="UH9-Qj-DHU" secondAttribute="leadingMargin" constant="8" id="ole-km-6ST"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="orX-ma-KDO" secondAttribute="trailing" id="sJe-1F-Kca"/>
+                                                <constraint firstItem="orX-ma-KDO" firstAttribute="top" secondItem="UH9-Qj-DHU" secondAttribute="topMargin" id="xlc-KP-OJ9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="Background"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <constraints>
+                            <constraint firstItem="3FM-Sz-nXs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="1qV-cS-F1v"/>
+                            <constraint firstItem="DMW-ee-DGd" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="BK7-fm-JYP"/>
+                            <constraint firstAttribute="trailing" secondItem="DMW-ee-DGd" secondAttribute="trailing" id="JQC-Oz-dwW"/>
+                            <constraint firstItem="DMW-ee-DGd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="KXZ-Cv-Dja"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="3FM-Sz-nXs" secondAttribute="trailing" id="Szw-GB-tsW"/>
+                            <constraint firstItem="3FM-Sz-nXs" firstAttribute="top" secondItem="DMW-ee-DGd" secondAttribute="bottom" id="lSm-HG-QPb"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="3FM-Sz-nXs" secondAttribute="bottom" id="pxJ-fe-w4s"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Saved" image="ic_saved" selectedImage="ic_saved_fill" id="2o9-dX-jsX">
+                        <color key="badgeColor" name="PrimaryColor"/>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="znJ-Ia-wML"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="savedTableView" destination="3FM-Sz-nXs" id="geQ-ho-PQk"/>
+                        <outlet property="searchBar" destination="DMW-ee-DGd" id="azc-h3-fCh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1932.06106870229" y="-34.507042253521128"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_saved" width="32" height="32"/>
+        <image name="ic_saved_fill" width="32" height="32"/>
+        <image name="image5" width="1500" height="1000"/>
+        <namedColor name="Background">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryColor">
+            <color red="0.9137254901960784" green="0.41176470588235292" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
