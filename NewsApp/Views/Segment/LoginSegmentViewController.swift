@@ -21,8 +21,7 @@ class LoginSegmentViewController: UIViewController {
     }
     
     @IBAction func loginButtonAct(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "NewsPage", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "CustomTabBarController") as? CustomTabBarController{
+        
             guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
                 alertDialog(title: "Missing Field Data", message: "Please fill in all fields!")
                 return
@@ -32,12 +31,12 @@ class LoginSegmentViewController: UIViewController {
                 if error != nil {
                     self.alertDialog(title: "Error", message: "Email or password is incorrect")
                 } else {
-                    self.navigationController?.pushViewController(vc, animated: true)
+                    self.performSegue(withIdentifier: "loginToNewsPage", sender: nil)
                 }
                 
             })
             
-        }
+        
         
     }
     

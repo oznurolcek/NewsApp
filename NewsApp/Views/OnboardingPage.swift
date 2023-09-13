@@ -15,7 +15,7 @@ final class OnboardingPage: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var isLogin: Bool?
+    var isLogin: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()

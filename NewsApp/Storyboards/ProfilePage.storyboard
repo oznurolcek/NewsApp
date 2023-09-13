@@ -5,38 +5,144 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile-->
+        <!--Item-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="ProfilePage" id="Y6W-OH-hqX" customClass="ProfilePage" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Acp-A6-t27">
+                                <rect key="frame" x="8" y="119" width="377" height="185"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="185" id="TQP-dg-baN"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1B-nr-fk1">
+                                <rect key="frame" x="121" y="258" width="151" height="151"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_profile_image" translatesAutoresizingMaskIntoConstraints="NO" id="HYg-Gl-NkQ">
+                                        <rect key="frame" x="8" y="8" width="135" height="135"/>
+                                        <color key="backgroundColor" name="Background"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="135" id="VE7-X5-I4E"/>
+                                            <constraint firstAttribute="width" constant="135" id="bjb-GG-6Xr"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" name="OnPrimaryColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="HYg-Gl-NkQ" secondAttribute="trailing" constant="8" id="GhP-Yz-JIA"/>
+                                    <constraint firstAttribute="height" constant="151" id="O8v-7e-BwI"/>
+                                    <constraint firstItem="HYg-Gl-NkQ" firstAttribute="leading" secondItem="V1B-nr-fk1" secondAttribute="leading" constant="8" id="Y9g-l9-gwQ"/>
+                                    <constraint firstItem="HYg-Gl-NkQ" firstAttribute="top" secondItem="V1B-nr-fk1" secondAttribute="top" constant="8" id="YJr-EI-4J4"/>
+                                    <constraint firstAttribute="width" constant="151" id="hpY-YK-BEZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="HYg-Gl-NkQ" secondAttribute="bottom" constant="8" id="y08-Yz-kkj"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to perspectiNEWS!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCL-9F-dyC">
+                                <rect key="frame" x="16" y="433" width="361" height="24"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09V-WB-tVQ">
+                                <rect key="frame" x="40" y="659" width="313" height="50"/>
+                                <color key="backgroundColor" name="PrimaryColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="XPi-zQ-9TP"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right" catalog="system" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutAct:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="3JL-mO-Hqp"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="V1B-nr-fk1" secondAttribute="trailing" constant="121" id="0gf-fT-L27"/>
+                            <constraint firstItem="09V-WB-tVQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="95P-uf-lq1"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="09V-WB-tVQ" secondAttribute="trailing" constant="40" id="Wwk-r6-SCw"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VCL-9F-dyC" secondAttribute="trailing" constant="16" id="aUx-yg-d9H"/>
+                            <constraint firstItem="VCL-9F-dyC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="cT2-KT-U8E"/>
+                            <constraint firstItem="V1B-nr-fk1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="155" id="jCK-ma-VTx"/>
+                            <constraint firstItem="V1B-nr-fk1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="121" id="jWO-80-oTX"/>
+                            <constraint firstItem="Acp-A6-t27" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="mSl-xD-hDm"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Acp-A6-t27" secondAttribute="trailing" constant="8" id="o45-LJ-m9t"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="09V-WB-tVQ" secondAttribute="bottom" constant="60" id="pDy-R8-ni7"/>
+                            <constraint firstItem="VCL-9F-dyC" firstAttribute="top" secondItem="V1B-nr-fk1" secondAttribute="bottom" constant="24" id="tP9-VS-lz6"/>
+                            <constraint firstItem="Acp-A6-t27" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="yaU-i7-ezy"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="ic_profile" selectedImage="ic_profile_fill" id="Pli-Xm-mTn">
+                    <tabBarItem key="tabBarItem" title="Item" image="ic_profile" selectedImage="ic_profile_fill" id="JBp-Lr-fZo">
                         <color key="badgeColor" name="PrimaryColor"/>
                     </tabBarItem>
+                    <navigationItem key="navigationItem" id="Txd-9w-Tfa"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imageBackgroundView" destination="V1B-nr-fk1" id="nOk-dP-9qQ"/>
+                        <outlet property="logoutButton" destination="09V-WB-tVQ" id="XsB-s0-xgZ"/>
+                        <outlet property="profileImage" destination="HYg-Gl-NkQ" id="eK1-QC-Vso"/>
+                        <segue destination="BbW-eY-ldA" kind="show" identifier="profileToLoginPage" id="9XK-ak-yIO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="51" y="-34"/>
+            <point key="canvasLocation" x="976.33587786259534" y="-34.507042253521128"/>
+        </scene>
+        <!--LoginPage-->
+        <scene sceneID="yuI-WR-lcM">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="LoginPage" storyboardName="LoginPage" referencedIdentifier="LoginPage" id="BbW-eY-ldA" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="u9p-rU-gAC"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3YG-r0-3UN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="976" y="401"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="oc4-19-8hU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="giI-Sf-6Wc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="ic_profile" selectedImage="ic_profile_fill" id="Pli-Xm-mTn">
+                        <color key="badgeColor" name="PrimaryColor"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TIP-eq-M1s">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="ST4-kk-ivp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uAa-rm-DoD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="49.618320610687022" y="-34.507042253521128"/>
         </scene>
     </scenes>
     <resources>
         <image name="ic_profile" width="32" height="32"/>
         <image name="ic_profile_fill" width="32" height="32"/>
+        <image name="ic_profile_image" width="2000" height="2000"/>
+        <image name="logo" width="500" height="500"/>
+        <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="109"/>
+        <namedColor name="Background">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="OnPrimaryColor">
+            <color red="0.94901960784313721" green="0.74509803921568629" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PrimaryColor">
             <color red="0.9137254901960784" green="0.41176470588235292" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

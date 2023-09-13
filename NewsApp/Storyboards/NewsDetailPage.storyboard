@@ -29,13 +29,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="mab-QX-Ura">
-                                                <rect key="frame" x="16" y="183.66666666666663" width="361" height="350"/>
+                                                <rect key="frame" x="16" y="166.33333333333337" width="361" height="350"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="350" id="kTh-Q7-3Wj"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbk-Ft-aiR">
-                                                <rect key="frame" x="16" y="557.66666666666674" width="361" height="730.66666666666674"/>
+                                                <rect key="frame" x="16" y="540.33333333333348" width="361" height="730.66666666666652"/>
                                                 <string key="text">Mexico’s Supreme Court decriminalized abortion nationwide on Wednesday in a sweeping decision that builds on an earlier ruling giving officials the authority to allow the procedure on a state-by-state basis.
 
 The court struck down the federal penal code that criminalized abortion, deeming it “unconstitutional” and making abortion legally accessible in all federal health institutions across the country. It also ruled against bans on medical providers, including midwives, who perform the procedure.
@@ -49,21 +49,16 @@ The Mexican Supreme Court first ruled that criminalizing abortion was unconstitu
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Msz-zU-Tui">
-                                                <rect key="frame" x="16" y="125.33333333333333" width="361" height="34.333333333333329"/>
+                                                <rect key="frame" x="16" y="125.33333333333331" width="361" height="17"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WdR-ps-Mek">
-                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="34.333333333333336"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.up" catalog="system"/>
-                                                    </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="🕓" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txj-O2-CQy">
-                                                        <rect key="frame" x="0.0" y="0.0" width="325.66666666666669" height="34.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="325.66666666666669" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCo-gO-ZhQ">
-                                                        <rect key="frame" x="325.66666666666669" y="0.0" width="35.333333333333314" height="34.333333333333336"/>
+                                                        <rect key="frame" x="325.66666666666669" y="0.0" width="35.333333333333314" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -150,7 +145,6 @@ The Mexican Supreme Court first ruled that criminalizing abortion was unconstitu
     </scenes>
     <resources>
         <image name="image" width="1500" height="999"/>
-        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <namedColor name="Background">
             <color red="0.97254901960784312" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
