@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="smu-Po-EdX">
-                                <rect key="frame" x="320" y="67" width="57" height="35"/>
+                                <rect key="frame" x="320" y="111" width="57" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Skip">
                                     <color key="baseForegroundColor" name="OnPrimaryColor"/>
@@ -54,7 +54,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XJi-fr-Gup">
-                                <rect key="frame" x="16" y="118" width="361" height="610"/>
+                                <rect key="frame" x="16" y="162" width="361" height="566"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="pnx-Ic-3Jm">
                                     <size key="itemSize" width="361" height="610"/>
@@ -64,7 +64,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OnboardingCell" id="JQ3-jo-MjI" customClass="OnboardingCell" customModule="NewsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="610"/>
+                                        <rect key="frame" x="0.0" y="-22" width="361" height="610"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="I0E-UO-aLB">
                                             <rect key="frame" x="0.0" y="0.0" width="361" height="610"/>
@@ -141,26 +141,47 @@
                             <constraint firstItem="g1e-pN-afo" firstAttribute="top" secondItem="XJi-fr-Gup" secondAttribute="bottom" constant="24" id="qsp-Y0-vcM"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="c6M-Df-Wai"/>
                     <connections>
                         <outlet property="collectionView" destination="XJi-fr-Gup" id="CZK-25-kXw"/>
                         <outlet property="loginButton" destination="S2e-Dj-msB" id="q9O-iz-CcF"/>
                         <outlet property="pageControl" destination="Qzc-u0-yJZ" id="8wE-RV-H0K"/>
                         <outlet property="signUpButton" destination="g1e-pN-afo" id="atd-KD-Qbd"/>
                         <outlet property="skipButton" destination="smu-Po-EdX" id="867-4e-aqM"/>
-                        <segue destination="WWo-QQ-Fxl" kind="showDetail" identifier="toLoginPage" id="TGn-Ta-GaV"/>
+                        <segue destination="WWo-QQ-Fxl" kind="show" identifier="toLoginPage" id="TGn-Ta-GaV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12.977099236641221" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="939.69465648854953" y="-27.464788732394368"/>
         </scene>
         <!--LoginPage-->
         <scene sceneID="rfw-sg-INb">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="LoginPage" storyboardName="LoginPage" referencedIdentifier="LoginPage" id="WWo-QQ-Fxl" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="LoginPage" storyboardName="LoginPage" referencedIdentifier="LoginPage" id="WWo-QQ-Fxl" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zre-K2-WiD"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZxA-Po-Mul" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="392" y="394"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TeX-cH-uZN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SqS-DI-QWs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Bt-1Q-YLH">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="V0l-tB-oor"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FhP-DH-C6Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="12.977099236641221" y="-27.464788732394368"/>
         </scene>
     </scenes>
     <resources>

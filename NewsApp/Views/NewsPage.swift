@@ -67,9 +67,24 @@ final class NewsPage: UIViewController {
 //MARK: UITableView
 extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol{
     func saveNews(indexPath: IndexPath) {
-        var list : [Article] = []
-        list.append(news[indexPath.row])
-        print(list)
+//        var list : [Article] = []
+//
+//        list.append(news[indexPath.row])
+//        let savedList = UserDefaults.standard
+//        savedList.set(list, forKey: "titleList")
+//        let titleList = savedList.array(forKey: "titleList") as? [Article] ?? [Article]()
+//        print(titleList)
+//
+//        var imageList: [String] = []
+//        if let item = news[indexPath.row].urlToImage {
+//            imageList.append(item)
+//            let savedList = UserDefaults.standard
+//            savedList.set(imageList, forKey: "imageList")
+//            let imageList = savedList.array(forKey: "imageList") as? [String] ?? [String]()
+//            print(imageList)
+//        }
+        
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -25,8 +25,10 @@ final class LoginPage: UIViewController {
     
     private func preparePage() {
         if isLogin == true {
+            segmentControl.selectedSegmentIndex = 0
             self.view.bringSubviewToFront(loginSegmentView)
         } else {
+            segmentControl.selectedSegmentIndex = 1
             self.view.bringSubviewToFront(signUpSegmentView)
         }
         
