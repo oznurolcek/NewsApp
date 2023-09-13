@@ -16,7 +16,7 @@ final class NewsPage: UIViewController {
     var categories: String = "default"
     
     func getUrl(categories: String) -> String {
-        "https://newsapi.org/v2/everything?q=\(self.categories)&apiKey=7ddc787d735349eea089f6510a1db7e3"
+        "https://newsapi.org/v2/everything?q=\(self.categories)&apiKey=\(API_KEY)"
     }
     
     override func viewDidLoad() {
