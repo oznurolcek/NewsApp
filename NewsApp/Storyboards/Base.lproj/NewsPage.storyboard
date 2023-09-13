@@ -172,21 +172,15 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mexico’s Supreme Court Decriminalizes Abortion Nationwide" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMU-h9-Cha">
-                                                            <rect key="frame" x="147" y="16.000000000000004" width="178" height="50.333333333333343"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                            <rect key="frame" x="147" y="16" width="178" height="43"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZh-Da-pBm">
-                                                            <rect key="frame" x="147" y="74.333333333333329" width="222" height="28.666666666666671"/>
+                                                            <rect key="frame" x="147" y="62.999999999999993" width="222" height="28.666666666666664"/>
                                                             <string key="text">The decision builds on an earlier high court ruling and reflects how Latin American countries are expanding reproductive rights.</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read more..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2G-zg-Hiu">
-                                                            <rect key="frame" x="147" y="111" width="75" height="14.333333333333329"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -203,21 +197,28 @@
                                                                 <action selector="savedButtonAct:" destination="pw4-by-1lZ" eventType="touchUpInside" id="r4M-DZ-bCA"/>
                                                             </connections>
                                                         </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Elon Musk" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGP-et-uOO">
+                                                            <rect key="frame" x="147" y="137" width="222" height="12"/>
+                                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="10"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="h7Z-PA-96M" secondAttribute="bottom" constant="8" id="78O-Tw-eHi"/>
                                                         <constraint firstAttribute="trailing" secondItem="1x0-qm-pXV" secondAttribute="trailing" constant="4" id="AZN-c6-9wJ"/>
                                                         <constraint firstItem="h7Z-PA-96M" firstAttribute="top" secondItem="wIT-Uj-HfR" secondAttribute="top" constant="8" id="BTm-iS-h7P"/>
-                                                        <constraint firstItem="e2G-zg-Hiu" firstAttribute="leading" secondItem="h7Z-PA-96M" secondAttribute="trailing" constant="8" id="ITR-MI-zSa"/>
+                                                        <constraint firstAttribute="bottom" secondItem="pGP-et-uOO" secondAttribute="bottom" constant="4" id="OLn-Ks-jhW"/>
                                                         <constraint firstItem="OMU-h9-Cha" firstAttribute="top" secondItem="wIT-Uj-HfR" secondAttribute="top" constant="16" id="Ozy-Ua-mXE"/>
                                                         <constraint firstItem="h7Z-PA-96M" firstAttribute="leading" secondItem="wIT-Uj-HfR" secondAttribute="leading" constant="8" id="RTz-nX-dcB"/>
+                                                        <constraint firstAttribute="trailing" secondItem="pGP-et-uOO" secondAttribute="trailing" constant="8" id="ZBe-6M-NEm"/>
                                                         <constraint firstItem="1x0-qm-pXV" firstAttribute="leading" secondItem="OMU-h9-Cha" secondAttribute="trailing" constant="4" id="bMN-4D-ok5"/>
                                                         <constraint firstItem="ZZh-Da-pBm" firstAttribute="leading" secondItem="h7Z-PA-96M" secondAttribute="trailing" constant="8" id="cd5-RP-UrM"/>
                                                         <constraint firstItem="OMU-h9-Cha" firstAttribute="leading" secondItem="h7Z-PA-96M" secondAttribute="trailing" constant="8" id="f3r-4w-rck"/>
                                                         <constraint firstAttribute="trailing" secondItem="ZZh-Da-pBm" secondAttribute="trailing" constant="8" id="mpp-Ah-GTe"/>
-                                                        <constraint firstItem="ZZh-Da-pBm" firstAttribute="top" secondItem="OMU-h9-Cha" secondAttribute="bottom" constant="8" id="tGI-ta-pMR"/>
-                                                        <constraint firstItem="e2G-zg-Hiu" firstAttribute="top" secondItem="ZZh-Da-pBm" secondAttribute="bottom" constant="8" id="ueM-Lv-lqs"/>
+                                                        <constraint firstItem="pGP-et-uOO" firstAttribute="leading" secondItem="h7Z-PA-96M" secondAttribute="trailing" constant="8" id="n9T-Wb-wXF"/>
+                                                        <constraint firstItem="ZZh-Da-pBm" firstAttribute="top" secondItem="OMU-h9-Cha" secondAttribute="bottom" constant="4" id="tGI-ta-pMR"/>
                                                         <constraint firstItem="1x0-qm-pXV" firstAttribute="top" secondItem="wIT-Uj-HfR" secondAttribute="top" constant="4" id="z0R-ab-X1D"/>
                                                     </constraints>
                                                 </view>
@@ -232,9 +233,9 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Background"/>
                                         <connections>
+                                            <outlet property="authorLabel" destination="pGP-et-uOO" id="AXq-rJ-2Up"/>
                                             <outlet property="descriptionLabel" destination="ZZh-Da-pBm" id="D8M-Ha-e3g"/>
                                             <outlet property="newsImage" destination="h7Z-PA-96M" id="4hs-p8-cqt"/>
-                                            <outlet property="readMoreLabel" destination="e2G-zg-Hiu" id="6RM-R6-Hcq"/>
                                             <outlet property="savedButton" destination="1x0-qm-pXV" id="ZJx-6P-QQs"/>
                                             <outlet property="titleLabel" destination="OMU-h9-Cha" id="reL-E5-rA1"/>
                                             <outlet property="view" destination="wIT-Uj-HfR" id="0o1-GT-ZVm"/>

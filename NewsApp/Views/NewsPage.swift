@@ -93,6 +93,10 @@ extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol
             }
             cell.titleLabel.text = news[indexPath.row].title
             cell.descriptionLabel.text = news[indexPath.row].description
+            if let newsAuthor = news[indexPath.row].author {
+                cell.authorLabel.text = "by \(newsAuthor)"
+            }
+            
             
             cell.cellProtocol = self
             cell.indexPath = indexPath
