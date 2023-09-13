@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="ProfilePage" id="Y6W-OH-hqX" customClass="ProfilePage" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -63,12 +63,33 @@
                                     <action selector="logoutAct:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="3JL-mO-Hqp"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bP5-cU-H0U">
+                                <rect key="frame" x="16" y="465" width="361" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="ZIS-m1-Qnv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZW0-dS-sUL">
+                                <rect key="frame" x="306" y="493" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" name="PrimaryColor"/>
+                                <color key="thumbTintColor" name="Background"/>
+                                <connections>
+                                    <action selector="modeSwitchButtonAct:" destination="Y6W-OH-hqX" eventType="valueChanged" id="YZC-pg-kC1"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="V1B-nr-fk1" secondAttribute="trailing" constant="121" id="0gf-fT-L27"/>
                             <constraint firstItem="09V-WB-tVQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="95P-uf-lq1"/>
+                            <constraint firstItem="bP5-cU-H0U" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="GGC-cJ-Ebb"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bP5-cU-H0U" secondAttribute="trailing" constant="16" id="QuX-BT-jaI"/>
+                            <constraint firstItem="bP5-cU-H0U" firstAttribute="top" secondItem="VCL-9F-dyC" secondAttribute="bottom" constant="8" id="Uih-fb-gN8"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="09V-WB-tVQ" secondAttribute="trailing" constant="40" id="Wwk-r6-SCw"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VCL-9F-dyC" secondAttribute="trailing" constant="16" id="aUx-yg-d9H"/>
                             <constraint firstItem="VCL-9F-dyC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="cT2-KT-U8E"/>
@@ -81,14 +102,16 @@
                             <constraint firstItem="Acp-A6-t27" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="yaU-i7-ezy"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="ic_profile" selectedImage="ic_profile_fill" id="JBp-Lr-fZo">
+                    <tabBarItem key="tabBarItem" title="Profile" image="ic_profile" selectedImage="ic_profile_fill" id="JBp-Lr-fZo">
                         <color key="badgeColor" name="PrimaryColor"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="Txd-9w-Tfa"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="emailLabel" destination="bP5-cU-H0U" id="ugL-oc-tMu"/>
                         <outlet property="imageBackgroundView" destination="V1B-nr-fk1" id="nOk-dP-9qQ"/>
                         <outlet property="logoutButton" destination="09V-WB-tVQ" id="XsB-s0-xgZ"/>
+                        <outlet property="modeSwitchButton" destination="ZW0-dS-sUL" id="3e3-hh-Wuh"/>
                         <outlet property="profileImage" destination="HYg-Gl-NkQ" id="eK1-QC-Vso"/>
                         <segue destination="BbW-eY-ldA" kind="show" identifier="profileToLoginPage" id="9XK-ak-yIO"/>
                     </connections>

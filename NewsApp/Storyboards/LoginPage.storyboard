@@ -117,7 +117,7 @@
                                     <constraint firstAttribute="height" constant="40" id="rQO-Kc-Cr4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIA-gC-rM3">
                                 <rect key="frame" x="40" y="283" width="313" height="60"/>
@@ -157,22 +157,11 @@
                         <outlet property="emailTextField" destination="jkA-ke-2uK" id="ZKv-yR-TZK"/>
                         <outlet property="loginButton" destination="jIA-gC-rM3" id="xUq-c1-Cqv"/>
                         <outlet property="passwordTextField" destination="gNV-V9-02m" id="JcT-Q7-W2T"/>
-                        <segue destination="0tN-1Q-tkK" kind="show" identifier="loginToNewsPage" id="EgU-J1-5az"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lch-VG-quG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2726" y="-260"/>
-        </scene>
-        <!--NewsPage-->
-        <scene sceneID="a0X-9a-JrJ">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="NewsPage" storyboardName="NewsPage" referencedIdentifier="NewsPage" id="0tN-1Q-tkK" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="f6g-1r-Cf3"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5JR-bE-NzU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3259" y="-261"/>
         </scene>
         <!--Sign Up Segment View Controller-->
         <scene sceneID="aZZ-Dn-rEe">
@@ -225,7 +214,7 @@
                                     <constraint firstAttribute="height" constant="40" id="UyF-ao-898"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JpJ-rO-CGc">
                                 <rect key="frame" x="40" y="317" width="313" height="60"/>

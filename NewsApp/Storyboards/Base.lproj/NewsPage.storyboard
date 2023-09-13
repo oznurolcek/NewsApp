@@ -275,6 +275,7 @@
         <!--Home-->
         <scene sceneID="R4A-N4-dhn">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L6s-f5-3gx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gaV-b0-nsN" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="ic_home" selectedImage="ic_home_fill" id="AAr-eh-QgQ">
                         <color key="badgeColor" name="PrimaryColor"/>
@@ -290,7 +291,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="9ad-bO-umI"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L6s-f5-3gx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3779.3893129770991" y="-34.507042253521128"/>
         </scene>

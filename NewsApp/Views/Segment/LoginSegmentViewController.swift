@@ -31,7 +31,9 @@ class LoginSegmentViewController: UIViewController {
                 if error != nil {
                     self.alertDialog(title: "Error", message: "Email or password is incorrect")
                 } else {
-                    self.performSegue(withIdentifier: "loginToNewsPage", sender: nil)
+                    let storyboard = UIStoryboard(name: "NewsPage", bundle: nil)
+                    let vc = (storyboard.instantiateViewController(withIdentifier: "CustomTabBarController") as? CustomTabBarController)!
+                    self.navigationController?.pushViewController(vc, animated: true)
                 }
                 
             })
