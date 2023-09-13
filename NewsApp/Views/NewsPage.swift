@@ -24,15 +24,12 @@ final class NewsPage: UIViewController {
         
         prepareTableView()
         prepareSearchBar()
-        getNews()
-        
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
-    
-        
+        getNews()
     }
-    
     
     private func prepareTableView() {
         newsTableView.dataSource = self
@@ -60,7 +57,12 @@ final class NewsPage: UIViewController {
 //            }
 //        }
 //    }
+    @IBAction func openSideMenuAct(_ sender: Any) {
+        
+    }
 }
+
+
 
 //MARK: UITableView
 extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol{

@@ -85,11 +85,30 @@
                             <constraint firstItem="Lw9-QO-88e" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="nwS-3y-zgy"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="nCo-wp-oKO"/>
                     <connections>
                         <outlet property="categoriesTableView" destination="0xd-mr-CnP" id="mYd-px-Num"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1005.3435114503816" y="-34.507042253521128"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VoL-zn-KiX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mbn-dK-Sa8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Igr-Ky-D5v">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="8Oy-Kl-P2m"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="skG-pQ-obT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="78.625954198473281" y="-34.507042253521128"/>
         </scene>

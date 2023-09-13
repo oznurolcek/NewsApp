@@ -21,6 +21,9 @@ class SideMenu: UIViewController {
         categoriesTableView.delegate = self
     }
 
+//    override func performSegue(withIdentifier identifier: String, sender: Any?) {
+//        <#code#>
+//    }
 
 }
 
@@ -38,7 +41,16 @@ extension SideMenu: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let categories = NewsCategories.allCases[indexPath.row].categoryName
+        print(categories)
+        let storyboard = UIStoryboard(name: "NewsPage", bundle: nil)
+                
+        if let vc = storyboard.instantiateViewController(withIdentifier: "NewsPage") as? NewsPage {
+            
+            vc.categories = categories
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }

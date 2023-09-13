@@ -273,6 +273,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="list.dash" catalog="system" id="CwU-nP-gWT">
                             <color key="tintColor" name="PrimaryColor"/>
                             <connections>
+                                <action selector="openSideMenuAct:" destination="BYZ-38-t0r" id="II1-4O-XIx"/>
                                 <segue destination="4Rn-Ih-79n" kind="showDetail" identifier="toSideMenu" id="RNJ-mS-3MB"/>
                             </connections>
                         </barButtonItem>
