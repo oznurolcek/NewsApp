@@ -32,65 +32,8 @@
                                 <rect key="frame" x="0.0" y="159" width="393" height="610"/>
                                 <color key="backgroundColor" name="Background"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SectionButtonTableViewCell" rowHeight="60" id="u2Z-Tb-X3p" customClass="SectionButtonTableViewCell" customModule="NewsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u2Z-Tb-X3p" id="aXX-Pq-HcC">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tu2-En-dOO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MwD-be-9AL">
-                                                        <size key="itemSize" width="118" height="60"/>
-                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    </collectionViewFlowLayout>
-                                                    <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SectionButtonCollectionViewCell" id="nzg-9f-t6n" customClass="SectionButtonCollectionViewCell" customModule="NewsApp" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="118" height="60"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="y2i-Z7-NGY">
-                                                                <rect key="frame" x="0.0" y="0.0" width="118" height="60"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gg4-rq-qBX">
-                                                                        <rect key="frame" x="37.666666666666664" y="13" width="42.999999999999993" height="34.333333333333336"/>
-                                                                        <color key="backgroundColor" name="PrimaryColor"/>
-                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="plain" title="All"/>
-                                                                    </button>
-                                                                </subviews>
-                                                                <constraints>
-                                                                    <constraint firstItem="gg4-rq-qBX" firstAttribute="centerY" secondItem="y2i-Z7-NGY" secondAttribute="centerY" id="oLQ-Wi-yPH"/>
-                                                                    <constraint firstItem="gg4-rq-qBX" firstAttribute="centerX" secondItem="y2i-Z7-NGY" secondAttribute="centerX" id="wL9-b6-N7s"/>
-                                                                </constraints>
-                                                            </collectionViewCellContentView>
-                                                            <size key="customSize" width="118" height="60"/>
-                                                            <connections>
-                                                                <outlet property="sectionButton" destination="gg4-rq-qBX" id="aVi-Zj-PkS"/>
-                                                            </connections>
-                                                        </collectionViewCell>
-                                                    </cells>
-                                                </collectionView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="tu2-En-dOO" firstAttribute="leading" secondItem="aXX-Pq-HcC" secondAttribute="leading" id="Hwg-LD-3mf"/>
-                                                <constraint firstAttribute="trailing" secondItem="tu2-En-dOO" secondAttribute="trailing" id="MZg-is-PpK"/>
-                                                <constraint firstAttribute="bottom" secondItem="tu2-En-dOO" secondAttribute="bottom" id="mSO-fR-65g"/>
-                                                <constraint firstItem="tu2-En-dOO" firstAttribute="top" secondItem="aXX-Pq-HcC" secondAttribute="top" id="r5a-n7-pVD"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" name="Background"/>
-                                        <connections>
-                                            <outlet property="collectionView" destination="tu2-En-dOO" id="P7d-1h-aJx"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TopNewsTableViewCell" rowHeight="260" id="0JU-yU-Iz4" customClass="TopNewsTableViewCell" customModule="NewsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="110" width="393" height="260"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="260"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0JU-yU-Iz4" id="pRn-Qs-6Eb">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="260"/>
@@ -155,7 +98,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCell" rowHeight="169" id="pw4-by-1lZ" customClass="NewsCell" customModule="NewsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="370" width="393" height="169"/>
+                                        <rect key="frame" x="0.0" y="310" width="393" height="169"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pw4-by-1lZ" id="vt4-vi-Kqc">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="169"/>

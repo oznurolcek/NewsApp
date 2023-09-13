@@ -35,8 +35,6 @@
 		899C82702AB1C2E30078F0D4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899C826F2AB1C2E30078F0D4 /* Constants.swift */; };
 		899C82732AB1EF730078F0D4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 899C82722AB1EF730078F0D4 /* FirebaseAuth */; };
 		899C82752AB1EF730078F0D4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 899C82742AB1EF730078F0D4 /* FirebaseFirestore */; };
-		89B7A6B72AA91AED00E79E9D /* SectionButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B7A6B62AA91AED00E79E9D /* SectionButtonTableViewCell.swift */; };
-		89B7A6B92AA91BDC00E79E9D /* SectionButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B7A6B82AA91BDC00E79E9D /* SectionButtonCollectionViewCell.swift */; };
 		89B7A6BB2AA9203000E79E9D /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B7A6BA2AA9203000E79E9D /* NewsCell.swift */; };
 		89B7A6BD2AA93A5B00E79E9D /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B7A6BC2AA93A5B00E79E9D /* News.swift */; };
 		89F2D23E2AA79D190062A544 /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F2D23D2AA79D190062A544 /* OnboardingCell.swift */; };
@@ -76,8 +74,6 @@
 		8940323A2AA77AD30051187C /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
 		8940323C2AA77B100051187C /* OnboardingPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingPage.storyboard; sourceTree = "<group>"; };
 		899C826F2AB1C2E30078F0D4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		89B7A6B62AA91AED00E79E9D /* SectionButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionButtonTableViewCell.swift; sourceTree = "<group>"; };
-		89B7A6B82AA91BDC00E79E9D /* SectionButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		89B7A6BA2AA9203000E79E9D /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		89B7A6BC2AA93A5B00E79E9D /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		89F2D23D2AA79D190062A544 /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
@@ -222,8 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				89F2D23D2AA79D190062A544 /* OnboardingCell.swift */,
-				89B7A6B62AA91AED00E79E9D /* SectionButtonTableViewCell.swift */,
-				89B7A6B82AA91BDC00E79E9D /* SectionButtonCollectionViewCell.swift */,
 				89B7A6BA2AA9203000E79E9D /* NewsCell.swift */,
 				893DEE772AAA2157003D7AC7 /* TopNewsCollectionViewCell.swift */,
 				893DEE792AAA21E0003D7AC7 /* TopNewsTableViewCell.swift */,
@@ -331,13 +325,11 @@
 				89F2D2442AA7D4950062A544 /* NetworkManager.swift in Sources */,
 				893DEE7C2AAA4D80003D7AC7 /* NewsDetailPage.swift in Sources */,
 				893DEE7A2AAA21E0003D7AC7 /* TopNewsTableViewCell.swift in Sources */,
-				89B7A6B92AA91BDC00E79E9D /* SectionButtonCollectionViewCell.swift in Sources */,
 				8926737C2AAF64BA001E12EC /* SideMenu.swift in Sources */,
 				893DEE892AADF897003D7AC7 /* LoginSegmentViewController.swift in Sources */,
 				8940321E2AA775BF0051187C /* SceneDelegate.swift in Sources */,
 				893DEE802AAB214A003D7AC7 /* SavedNewsCell.swift in Sources */,
 				892673802AB09878001E12EC /* Categories.swift in Sources */,
-				89B7A6B72AA91AED00E79E9D /* SectionButtonTableViewCell.swift in Sources */,
 				892673782AAE3570001E12EC /* NewsViewModel.swift in Sources */,
 				893DEE782AAA2157003D7AC7 /* TopNewsCollectionViewCell.swift in Sources */,
 				89F2D2422AA7CA1A0062A544 /* OnboardingViewModel.swift in Sources */,
