@@ -24,22 +24,15 @@ class LoginSegmentViewController: UIViewController {
         let storyboard = UIStoryboard(name: "NewsPage", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "CustomTabBarController") as? CustomTabBarController{
             guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
-                let alert = UIAlertController(title: "Missing Field Data", message: "Please fill in all fields!", preferredStyle: .alert)
-                            let okAction = UIAlertAction(title: "Okay", style: .default)
-                            alert.addAction(okAction)
-                            self.present(alert, animated: true)
+                alertDialog(title: "Missing Field Data", message: "Please fill in all fields!")
                 return
             }
             
             Auth.auth().signIn(withEmail: email, password: password, completion: { (result, error) in
-                if let e = error {
-                    let alert = UIAlertController(title: "Yanlış bilgi", message: "dddd!", preferredStyle: .alert)
-                                let okAction = UIAlertAction(title: "Okay", style: .default)
-                                alert.addAction(okAction)
-                                self.present(alert, animated: true)
+                if error != nil {
+                    self.alertDialog(title: "Error", message: "Email or password is incorrect")
                 } else {
                     self.navigationController?.pushViewController(vc, animated: true)
-                    print("x")
                 }
                 
             })
@@ -48,6 +41,14 @@ class LoginSegmentViewController: UIViewController {
         
     }
     
-
-
+    func alertDialog(title : String, message : String) {
+        let alertMessage = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { UIAlertAction in
+        }
+        alertMessage.addAction(okButton)
+        self.present(alertMessage, animated: true)
+    }
 }
+
+

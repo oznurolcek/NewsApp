@@ -23,10 +23,7 @@ class SignUpSegmentViewController: UIViewController {
     
     @IBAction func signUpButtonAct(_ sender: Any) {
         guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty, let name = nameTextField.text, !name.isEmpty else {
-            let alert = UIAlertController(title: "Missing Field Data", message: "Please fill in all fields!", preferredStyle: .alert)
-                        let okAction = UIAlertAction(title: "Okay", style: .default)
-                        alert.addAction(okAction)
-                        self.present(alert, animated: true)
+            alertDialog(title: "Missing Field Data", message: "Please fill in all fields!")
             return
         }
         
@@ -34,14 +31,20 @@ class SignUpSegmentViewController: UIViewController {
             if let e = error {
                 print(e)
             } else {
-                let alert = UIAlertController(title: "Üye Olundu!", message: "Login sayfasına geçiniz.", preferredStyle: .alert)
-                            let okAction = UIAlertAction(title: "Okay", style: .default)
-                            alert.addAction(okAction)
-                            self.present(alert, animated: true)
+                self.alertDialog(title: "Successful!", message: "Go to the login page")
             }
             
         })
         
+    }
+    
+    func alertDialog(title : String, message : String) {
+        let alertMessage = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { UIAlertAction in
+        }
+        alertMessage.addAction(okButton)
+        self.present(alertMessage, animated: true)
     }
     
 }
