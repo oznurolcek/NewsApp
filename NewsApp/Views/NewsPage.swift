@@ -46,7 +46,6 @@ final class NewsPage: UIViewController {
             DispatchQueue.main.async {
                 self.newsTableView.reloadData()
             }
-            print(self.news.count)
         })
     }
     

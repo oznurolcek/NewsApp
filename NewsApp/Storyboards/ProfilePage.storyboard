@@ -73,15 +73,33 @@
                                 <color key="textColor" name="TextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZW0-dS-sUL">
-                                <rect key="frame" x="306" y="493" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="onTintColor" name="PrimaryColor"/>
-                                <color key="thumbTintColor" name="Background"/>
-                                <connections>
-                                    <action selector="modeSwitchButtonAct:" destination="Y6W-OH-hqX" eventType="valueChanged" id="YZC-pg-kC1"/>
-                                </connections>
-                            </switch>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCv-tP-Z8P">
+                                <rect key="frame" x="16" y="501" width="361" height="55"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZW0-dS-sUL">
+                                        <rect key="frame" x="296" y="12" width="51" height="31"/>
+                                        <color key="onTintColor" name="PrimaryColor"/>
+                                        <color key="thumbTintColor" name="Background"/>
+                                        <connections>
+                                            <action selector="modeSwitchButtonAct:" destination="Y6W-OH-hqX" eventType="valueChanged" id="YZC-pg-kC1"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Mode:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMd-wC-zYA">
+                                        <rect key="frame" x="16" y="19.666666666666629" width="89.333333333333329" height="16"/>
+                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="16"/>
+                                        <color key="textColor" name="TextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="OnBackground"/>
+                                <constraints>
+                                    <constraint firstItem="hMd-wC-zYA" firstAttribute="centerY" secondItem="dCv-tP-Z8P" secondAttribute="centerY" id="8ff-4S-NPG"/>
+                                    <constraint firstAttribute="height" constant="55" id="964-Of-RFW"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZW0-dS-sUL" secondAttribute="trailing" constant="16" id="9Wo-FG-1Mc"/>
+                                    <constraint firstItem="hMd-wC-zYA" firstAttribute="leading" secondItem="dCv-tP-Z8P" secondAttribute="leading" constant="16" id="m9w-5P-Rht"/>
+                                    <constraint firstItem="ZW0-dS-sUL" firstAttribute="centerY" secondItem="dCv-tP-Z8P" secondAttribute="centerY" id="qKc-Mz-gTf"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Background"/>
@@ -91,8 +109,10 @@
                             <constraint firstItem="bP5-cU-H0U" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="GGC-cJ-Ebb"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bP5-cU-H0U" secondAttribute="trailing" constant="16" id="QuX-BT-jaI"/>
                             <constraint firstItem="bP5-cU-H0U" firstAttribute="top" secondItem="VCL-9F-dyC" secondAttribute="bottom" constant="8" id="Uih-fb-gN8"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dCv-tP-Z8P" secondAttribute="trailing" constant="16" id="VFv-X9-Oqn"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="09V-WB-tVQ" secondAttribute="trailing" constant="40" id="Wwk-r6-SCw"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VCL-9F-dyC" secondAttribute="trailing" constant="16" id="aUx-yg-d9H"/>
+                            <constraint firstItem="dCv-tP-Z8P" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="cQu-ai-PMH"/>
                             <constraint firstItem="VCL-9F-dyC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="cT2-KT-U8E"/>
                             <constraint firstItem="V1B-nr-fk1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="155" id="jCK-ma-VTx"/>
                             <constraint firstItem="V1B-nr-fk1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="121" id="jWO-80-oTX"/>
@@ -100,6 +120,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Acp-A6-t27" secondAttribute="trailing" constant="8" id="o45-LJ-m9t"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="09V-WB-tVQ" secondAttribute="bottom" constant="60" id="pDy-R8-ni7"/>
                             <constraint firstItem="VCL-9F-dyC" firstAttribute="top" secondItem="V1B-nr-fk1" secondAttribute="bottom" constant="24" id="tP9-VS-lz6"/>
+                            <constraint firstItem="dCv-tP-Z8P" firstAttribute="top" secondItem="bP5-cU-H0U" secondAttribute="bottom" constant="16" id="xia-dW-d1n"/>
                             <constraint firstItem="Acp-A6-t27" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="yaU-i7-ezy"/>
                         </constraints>
                     </view>
@@ -109,6 +130,7 @@
                     <navigationItem key="navigationItem" id="Txd-9w-Tfa"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="backgroundView" destination="dCv-tP-Z8P" id="2WO-UM-dHo"/>
                         <outlet property="emailLabel" destination="bP5-cU-H0U" id="ugL-oc-tMu"/>
                         <outlet property="imageBackgroundView" destination="V1B-nr-fk1" id="nOk-dP-9qQ"/>
                         <outlet property="logoutButton" destination="09V-WB-tVQ" id="XsB-s0-xgZ"/>
@@ -161,6 +183,9 @@
         <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="109"/>
         <namedColor name="Background">
             <color red="0.97254901960784312" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="OnBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="OnPrimaryColor">
             <color red="0.94901960784313721" green="0.74509803921568629" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
