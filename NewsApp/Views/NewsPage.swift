@@ -67,7 +67,9 @@ final class NewsPage: UIViewController {
 //MARK: UITableView
 extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol{
     func saveNews(indexPath: IndexPath) {
-        print("id: \(news[indexPath.row].url!)")
+        var list : [Article] = []
+        list.append(news[indexPath.row])
+        print(list)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,35 +78,32 @@ extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        switch indexPath.row {
-//        case 0:
-//            let cell = newsTableView.dequeueReusableCell(withIdentifier: "SectionButtonTableViewCell", for: indexPath) as! SectionButtonTableViewCell
-//            return cell
-//        default:
-            let cell = newsTableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
-            if let urlToImage = news[indexPath.row].urlToImage {
-                if let url = URL(string: urlToImage) {
-                    DispatchQueue.global().async {
-                        if let data = try? Data(contentsOf: url) {
-                            DispatchQueue.main.async {
-                                cell.newsImage.image = UIImage(data: data)
-                            }
+
+        let cell = newsTableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
+        if let urlToImage = news[indexPath.row].urlToImage {
+            if let url = URL(string: urlToImage) {
+                DispatchQueue.global().async {
+                    if let data = try? Data(contentsOf: url) {
+                        DispatchQueue.main.async {
+                            cell.newsImage.image = UIImage(data: data)
                         }
                     }
                 }
             }
-            cell.titleLabel.text = news[indexPath.row].title
-            cell.descriptionLabel.text = news[indexPath.row].description
-            if let newsAuthor = news[indexPath.row].author {
-                cell.authorLabel.text = "by \(newsAuthor)"
-            }
-            
-            
-            cell.cellProtocol = self
-            cell.indexPath = indexPath
+        }
+        cell.titleLabel.text = news[indexPath.row].title
+        cell.descriptionLabel.text = news[indexPath.row].description
+        if let newsAuthor = news[indexPath.row].author {
+            cell.authorLabel.text = "by \(newsAuthor)"
+        }
+    
+        cell.cellProtocol = self
+        cell.indexPath = indexPath
         
-            return cell
-//        }
+
+    
+        return cell
+
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
