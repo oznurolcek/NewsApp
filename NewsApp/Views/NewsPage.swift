@@ -19,6 +19,8 @@ final class NewsPage: UIViewController {
         "https://newsapi.org/v2/everything?q=\(self.categories)&apiKey=\(API_KEY)"
     }
     
+    let darkModeEnabled = UserDefaults.standard.bool(forKey: "darkModeEnabled")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +31,7 @@ final class NewsPage: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         getNews()
+        prepareDarkMode()
     }
     
     private func prepareTableView() {
@@ -47,6 +50,16 @@ final class NewsPage: UIViewController {
                 self.newsTableView.reloadData()
             }
         })
+    }
+    
+    private func prepareDarkMode() {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let appDelegate = windowScene?.windows.first
+        if darkModeEnabled {
+            appDelegate?.overrideUserInterfaceStyle = .dark
+        } else {
+            appDelegate?.overrideUserInterfaceStyle = .light
+        }
     }
     
 //    func reloadTableView() -> () -> () {
