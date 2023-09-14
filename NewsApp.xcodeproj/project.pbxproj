@@ -13,8 +13,6 @@
 		8926737E2AB08E89001E12EC /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8926737D2AB08E89001E12EC /* SideMenuCell.swift */; };
 		892673802AB09878001E12EC /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8926737F2AB09878001E12EC /* Categories.swift */; };
 		893DEE762AAA0043003D7AC7 /* SavedPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 893DEE752AAA0043003D7AC7 /* SavedPage.storyboard */; };
-		893DEE782AAA2157003D7AC7 /* TopNewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893DEE772AAA2157003D7AC7 /* TopNewsCollectionViewCell.swift */; };
-		893DEE7A2AAA21E0003D7AC7 /* TopNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893DEE792AAA21E0003D7AC7 /* TopNewsTableViewCell.swift */; };
 		893DEE7C2AAA4D80003D7AC7 /* NewsDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893DEE7B2AAA4D80003D7AC7 /* NewsDetailPage.swift */; };
 		893DEE7E2AAA4D96003D7AC7 /* NewsDetailPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 893DEE7D2AAA4D96003D7AC7 /* NewsDetailPage.storyboard */; };
 		893DEE802AAB214A003D7AC7 /* SavedNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893DEE7F2AAB214A003D7AC7 /* SavedNewsCell.swift */; };
@@ -52,8 +50,6 @@
 		8926737D2AB08E89001E12EC /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		8926737F2AB09878001E12EC /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		893DEE752AAA0043003D7AC7 /* SavedPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SavedPage.storyboard; sourceTree = "<group>"; };
-		893DEE772AAA2157003D7AC7 /* TopNewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNewsCollectionViewCell.swift; sourceTree = "<group>"; };
-		893DEE792AAA21E0003D7AC7 /* TopNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNewsTableViewCell.swift; sourceTree = "<group>"; };
 		893DEE7B2AAA4D80003D7AC7 /* NewsDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailPage.swift; sourceTree = "<group>"; };
 		893DEE7D2AAA4D96003D7AC7 /* NewsDetailPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsDetailPage.storyboard; sourceTree = "<group>"; };
 		893DEE7F2AAB214A003D7AC7 /* SavedNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedNewsCell.swift; sourceTree = "<group>"; };
@@ -219,8 +215,6 @@
 			children = (
 				89F2D23D2AA79D190062A544 /* OnboardingCell.swift */,
 				89B7A6BA2AA9203000E79E9D /* NewsCell.swift */,
-				893DEE772AAA2157003D7AC7 /* TopNewsCollectionViewCell.swift */,
-				893DEE792AAA21E0003D7AC7 /* TopNewsTableViewCell.swift */,
 				893DEE7F2AAB214A003D7AC7 /* SavedNewsCell.swift */,
 				8926737D2AB08E89001E12EC /* SideMenuCell.swift */,
 			);
@@ -324,14 +318,12 @@
 				8940321C2AA775BF0051187C /* AppDelegate.swift in Sources */,
 				89F2D2442AA7D4950062A544 /* NetworkManager.swift in Sources */,
 				893DEE7C2AAA4D80003D7AC7 /* NewsDetailPage.swift in Sources */,
-				893DEE7A2AAA21E0003D7AC7 /* TopNewsTableViewCell.swift in Sources */,
 				8926737C2AAF64BA001E12EC /* SideMenu.swift in Sources */,
 				893DEE892AADF897003D7AC7 /* LoginSegmentViewController.swift in Sources */,
 				8940321E2AA775BF0051187C /* SceneDelegate.swift in Sources */,
 				893DEE802AAB214A003D7AC7 /* SavedNewsCell.swift in Sources */,
 				892673802AB09878001E12EC /* Categories.swift in Sources */,
 				892673782AAE3570001E12EC /* NewsViewModel.swift in Sources */,
-				893DEE782AAA2157003D7AC7 /* TopNewsCollectionViewCell.swift in Sources */,
 				89F2D2422AA7CA1A0062A544 /* OnboardingViewModel.swift in Sources */,
 				89B7A6BB2AA9203000E79E9D /* NewsCell.swift in Sources */,
 				8940323B2AA77AD30051187C /* OnboardingPage.swift in Sources */,
