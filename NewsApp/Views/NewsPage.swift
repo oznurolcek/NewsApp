@@ -11,6 +11,8 @@ final class NewsPage: UIViewController {
 
     @IBOutlet weak var newsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var sideMenuView: UIView!
+    @IBOutlet weak var sideMenuLeadingConstraint: NSLayoutConstraint!
     
     var news: [Article] = []
     var categories: String = "default"
@@ -21,11 +23,16 @@ final class NewsPage: UIViewController {
     
     let darkModeEnabled = UserDefaults.standard.bool(forKey: "darkModeEnabled")
     
+    var isMenuOpen: Bool = false
+    var beginPoint: CGFloat = 0.0
+    var difference: CGFloat = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         prepareTableView()
         prepareSearchBar()
+        sideMenuView.isHidden = !isMenuOpen
     
     }
     
@@ -69,9 +76,99 @@ final class NewsPage: UIViewController {
 //            }
 //        }
 //    }
-    @IBAction func openSideMenuAct(_ sender: Any) {
+   
+
+//MARK: Side Menu
+    func showSideMenu() {
+        UIView.animate(withDuration: 0.1, animations: {
+            self.sideMenuLeadingConstraint.constant = 10
+            self.view.layoutIfNeeded()
+        }) { (status) in
+            UIView.animate(withDuration: 0.1, animations: {
+                self.sideMenuLeadingConstraint.constant = 0
+                self.view.layoutIfNeeded()
+            }) { (status) in
+                self.sideMenuView.isHidden = self.isMenuOpen
+                self.isMenuOpen = !self.isMenuOpen
+            }
+        }
+    }
+    
+    func hideSideMenu() {
+        UIView.animate(withDuration: 0.1, animations: {
+            self.sideMenuLeadingConstraint.constant = 10
+            self.view.layoutIfNeeded()
+        }) { (status) in
+            UIView.animate(withDuration: 0.1, animations: {
+                self.sideMenuLeadingConstraint.constant = -280
+                self.view.layoutIfNeeded()
+            }) { (status) in
+                self.sideMenuView.isHidden = !self.isMenuOpen
+                self.isMenuOpen = !self.isMenuOpen
+            }
+        }
         
     }
+    
+    @IBAction func openSideMenuAct(_ sender: Any) {
+        if !isMenuOpen {
+            showSideMenu()
+        } else {
+            hideSideMenu()
+        }
+    }
+    
+    @IBAction func hideSideMenuGestureRecognizer(_ sender: Any) {
+        hideSideMenu()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if isMenuOpen {
+            if let touch = touches.first {
+                let location = touch.location(in: sideMenuView)
+                beginPoint = location.x
+            }
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if isMenuOpen {
+            if let touch = touches.first {
+                let location = touch.location(in: sideMenuView)
+                let differenceFromBeginPoint = beginPoint - location.x
+                if (differenceFromBeginPoint > 0 && differenceFromBeginPoint < 280) {
+                    self.sideMenuLeadingConstraint.constant = -differenceFromBeginPoint
+                    difference = differenceFromBeginPoint
+                }
+                
+            }
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if isMenuOpen {
+            if let touch = touches.first {
+                if (difference < 140) {
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self.sideMenuLeadingConstraint.constant = -290
+                    }) { (status) in
+                        self.isMenuOpen = false
+                        self.sideMenuView.isHidden = !self.isMenuOpen
+                        
+                    }
+                } else {
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self.sideMenuLeadingConstraint.constant = -10
+                    }) { (status) in
+                        self.isMenuOpen = true
+                        self.sideMenuView.isHidden = !self.isMenuOpen
+                        
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 

@@ -2,7 +2,7 @@
 //  SideMenu.swift
 //  NewsApp
 //
-//  Created by Öznur Ölçek on 11.09.2023.
+//  Created by Öznur Ölçek on 14.09.2023.
 //
 
 import UIKit
@@ -20,11 +20,7 @@ class SideMenu: UIViewController {
         categoriesTableView.dataSource = self
         categoriesTableView.delegate = self
     }
-
-//    override func performSegue(withIdentifier identifier: String, sender: Any?) {
-//        <#code#>
-//    }
-
+    
 }
 
 extension SideMenu: UITableViewDelegate, UITableViewDataSource {
@@ -49,7 +45,7 @@ extension SideMenu: UITableViewDelegate, UITableViewDataSource {
             
             vc.categories = categories
             
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.pushViewController(vc, animated: false)
         }
     }
     
