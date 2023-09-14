@@ -38,7 +38,6 @@ extension SideMenu: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let categories = NewsCategories.allCases[indexPath.row].categoryName
-        print(categories)
         let storyboard = UIStoryboard(name: "NewsPage", bundle: nil)
                 
         if let vc = storyboard.instantiateViewController(withIdentifier: "NewsPage") as? NewsPage {

@@ -13,14 +13,14 @@
             <objects>
                 <viewController storyboardIdentifier="NewsDetailPage" id="Y6W-OH-hqX" customClass="NewsDetailPage" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="1400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="860"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVV-ec-36o">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="1400"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="860"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bld-xc-L8P" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1400"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="860"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mexico’s Supreme Court Decriminalizes Abortion Nationwide" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eg2-0a-DXV">
                                                 <rect key="frame" x="16" y="16" width="361" height="93.333333333333329"/>
@@ -35,15 +35,9 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbk-Ft-aiR">
-                                                <rect key="frame" x="16" y="540.33333333333348" width="361" height="730.66666666666652"/>
+                                                <rect key="frame" x="16" y="540.33333333333337" width="361" height="122"/>
                                                 <string key="text">Mexico’s Supreme Court decriminalized abortion nationwide on Wednesday in a sweeping decision that builds on an earlier ruling giving officials the authority to allow the procedure on a state-by-state basis.
-
-The court struck down the federal penal code that criminalized abortion, deeming it “unconstitutional” and making abortion legally accessible in all federal health institutions across the country. It also ruled against bans on medical providers, including midwives, who perform the procedure.
-
-The ruling in Mexico, a predominantly Catholic country of 130 million people, points to how nations in Latin America are taking a leading role in broadening abortion rights.
-
-“I’m very moved and very proud,” said Rebeca Ramos, executive director of GIRE, a leading abortion rights group that filed an injunction last year against the Mexican regulation from 1931 that criminalized the procedure. “This makes possible what we had not achieved in many years, which is that at least in certain institutions all across the country legal and safe abortion services can be provided.”
-The Mexican Supreme Court first ruled that criminalizing abortion was unconstitutional in 2021, but that ruling applied only to the state of Coahuila, which borders Texas. Other Mexican states have already eliminated criminal penalties for the procedure, with Aguascalientes becoming the 12th to do so last week.,</string>
+</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="TextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -85,7 +79,7 @@ The Mexican Supreme Court first ruled that criminalizing abortion was unconstitu
                                             <constraint firstAttribute="trailing" secondItem="Msz-zU-Tui" secondAttribute="trailing" constant="16" id="VD5-T9-L8U"/>
                                             <constraint firstAttribute="trailing" secondItem="mab-QX-Ura" secondAttribute="trailing" constant="16" id="dJj-AZ-hdD"/>
                                             <constraint firstItem="eg2-0a-DXV" firstAttribute="top" secondItem="bld-xc-L8P" secondAttribute="top" constant="16" id="hCS-vV-QVl"/>
-                                            <constraint firstAttribute="height" constant="1400" id="iPE-sq-iex"/>
+                                            <constraint firstAttribute="height" constant="860" id="iPE-sq-iex"/>
                                             <constraint firstItem="eg2-0a-DXV" firstAttribute="leading" secondItem="bld-xc-L8P" secondAttribute="leading" constant="16" id="kts-Zo-u1o"/>
                                             <constraint firstItem="Cbk-Ft-aiR" firstAttribute="top" secondItem="mab-QX-Ura" secondAttribute="bottom" constant="24" id="nXr-Ja-Vup"/>
                                             <constraint firstItem="mab-QX-Ura" firstAttribute="leading" secondItem="bld-xc-L8P" secondAttribute="leading" constant="16" id="tjK-mO-wKj"/>
@@ -112,7 +106,7 @@ The Mexican Supreme Court first ruled that criminalizing abortion was unconstitu
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aof-Bc-6kD"/>
-                    <size key="freeformSize" width="393" height="1400"/>
+                    <size key="freeformSize" width="393" height="860"/>
                     <connections>
                         <outlet property="dateLabel" destination="CCo-gO-ZhQ" id="iGp-z7-BAB"/>
                         <outlet property="descriptionLabel" destination="Cbk-Ft-aiR" id="DMm-FJ-tDT"/>

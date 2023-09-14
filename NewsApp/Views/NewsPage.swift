@@ -23,6 +23,8 @@ final class NewsPage: UIViewController {
     
     let darkModeEnabled = UserDefaults.standard.bool(forKey: "darkModeEnabled")
     
+    var isSearch = false
+    
     var isMenuOpen: Bool = false
     var beginPoint: CGFloat = 0.0
     var difference: CGFloat = 0.0
@@ -147,7 +149,7 @@ final class NewsPage: UIViewController {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if isMenuOpen {
-            if let touch = touches.first {
+            if touches.first != nil {
                 if (difference < 140) {
                     UIView.animate(withDuration: 0.1, animations: {
                         self.sideMenuLeadingConstraint.constant = -290
@@ -235,7 +237,7 @@ extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol
                 
         if let detailVC = storyboard.instantiateViewController(withIdentifier: "NewsDetailPage") as? NewsDetailPage {
             let newsTitle = news[indexPath.row].title
-            let newsDescription = news[indexPath.row].description
+            let newsDescription = news[indexPath.row].content
             let newsDate = news[indexPath.row].publishedAt
             let newsImage = news[indexPath.row].urlToImage
             
@@ -253,7 +255,13 @@ extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol
 //MARK: UISearchBar
 extension NewsPage: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        categories = searchText
+        if searchText == "" {
+            isSearch = false
+        } else {
+            isSearch = true
+        }
+        newsTableView.reloadData()
     }
 }
 
