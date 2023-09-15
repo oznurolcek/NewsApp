@@ -136,22 +136,11 @@
                         <outlet property="logoutButton" destination="09V-WB-tVQ" id="XsB-s0-xgZ"/>
                         <outlet property="modeSwitchButton" destination="ZW0-dS-sUL" id="3e3-hh-Wuh"/>
                         <outlet property="profileImage" destination="HYg-Gl-NkQ" id="eK1-QC-Vso"/>
-                        <segue destination="BbW-eY-ldA" kind="show" identifier="profileToLoginPage" id="9XK-ak-yIO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="976.33587786259534" y="-34.507042253521128"/>
-        </scene>
-        <!--LoginPage-->
-        <scene sceneID="yuI-WR-lcM">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="LoginPage" storyboardName="LoginPage" referencedIdentifier="LoginPage" id="BbW-eY-ldA" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="u9p-rU-gAC"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3YG-r0-3UN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="976" y="401"/>
         </scene>
         <!--Profile-->
         <scene sceneID="oc4-19-8hU">

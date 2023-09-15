@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -23,8 +24,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             storyboard = UIStoryboard(name: "OnboardingPage", bundle: nil)
             vc = (storyboard.instantiateViewController(withIdentifier: "OnboardingPage") as? OnboardingPage)!
         } else {
-            storyboard = UIStoryboard(name: "NewsPage", bundle: nil)
-            vc = (storyboard.instantiateViewController(withIdentifier: "CustomTabBarController") as? CustomTabBarController)!
+            let currentUser = Auth.auth().currentUser
+            if currentUser != nil {
+                storyboard = UIStoryboard(name: "NewsPage", bundle: nil)
+                vc = (storyboard.instantiateViewController(withIdentifier: "CustomTabBarController") as? CustomTabBarController)!
+            } else {
+                storyboard = UIStoryboard(name: "LoginPage", bundle: nil)
+                vc = (storyboard.instantiateViewController(withIdentifier: "LoginPage") as? LoginPage)!
+            }
+            
         }
         
         window.rootViewController = vc

@@ -142,7 +142,6 @@ final class NewsPage: UIViewController {
                     self.sideMenuLeadingConstraint.constant = -differenceFromBeginPoint
                     difference = differenceFromBeginPoint
                 }
-                
             }
         }
     }
@@ -156,7 +155,6 @@ final class NewsPage: UIViewController {
                     }) { (status) in
                         self.isMenuOpen = false
                         self.sideMenuView.isHidden = !self.isMenuOpen
-                        
                     }
                 } else {
                     UIView.animate(withDuration: 0.1, animations: {
@@ -164,16 +162,12 @@ final class NewsPage: UIViewController {
                     }) { (status) in
                         self.isMenuOpen = true
                         self.sideMenuView.isHidden = !self.isMenuOpen
-                        
                     }
                 }
             }
         }
     }
-    
 }
-
-
 
 //MARK: UITableView
 extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol{
@@ -195,7 +189,6 @@ extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol
 //            print(imageList)
 //        }
         
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -203,8 +196,6 @@ extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-
         let cell = newsTableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
         if let urlToImage = news[indexPath.row].urlToImage {
             if let url = URL(string: urlToImage) {
@@ -226,8 +217,6 @@ extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol
         cell.cellProtocol = self
         cell.indexPath = indexPath
         
-
-    
         return cell
 
     }

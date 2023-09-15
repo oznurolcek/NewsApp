@@ -62,7 +62,11 @@ final class ProfilePage: UIViewController {
     
     @IBAction func logoutAct(_ sender: Any) {
         try! FirebaseAuth.Auth.auth().signOut()
-        performSegue(withIdentifier: "profileToLoginPage", sender: nil)
+        let storyboard = UIStoryboard(name: "LoginPage", bundle: nil)
+        let vc = (storyboard.instantiateViewController(withIdentifier: "LoginPage") as? LoginPage)!
+        vc.modalPresentationStyle = .fullScreen
+//        vc.modalTransitionStyle = .flipHorizontal
+        self.present(vc, animated: true)
         
     }
 }

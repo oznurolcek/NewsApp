@@ -33,13 +33,11 @@ class LoginSegmentViewController: UIViewController {
                 } else {
                     let storyboard = UIStoryboard(name: "NewsPage", bundle: nil)
                     let vc = (storyboard.instantiateViewController(withIdentifier: "CustomTabBarController") as? CustomTabBarController)!
-                    self.navigationController?.pushViewController(vc, animated: true)
+                    vc.modalPresentationStyle = .fullScreen
+//                    vc.modalTransitionStyle = .flipHorizontal
+                    self.present(vc, animated: true)
                 }
-                
             })
-            
-        
-        
     }
     
     func alertDialog(title : String, message : String) {
