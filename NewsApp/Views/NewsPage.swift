@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import CoreData
+
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 final class NewsPage: UIViewController {
 
@@ -172,29 +175,42 @@ final class NewsPage: UIViewController {
 //MARK: UITableView
 extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol{
     func saveNews(indexPath: IndexPath) {
-
         
-        func saveNewsToUserDefaults(news: Article) {
-            let uDefaults = UserDefaults.standard
-            uDefaults.set(news.title, forKey: "title")
-            uDefaults.set(news.urlToImage, forKey: "imageUrl")
-            uDefaults.set(news.content, forKey: "content")
-            uDefaults.set(news.publishedAt, forKey: "publishedAt")
-        }
-
+        let context = appDelegate.persistentContainer.viewContext
+        
         let selectedNews = news[indexPath.row]
-        saveNewsToUserDefaults(news: selectedNews)
 
-        let title = UserDefaults.standard.string(forKey: "title") ?? ""
-        let imageUrl = UserDefaults.standard.string(forKey: "imageUrl") ?? ""
-        let content = UserDefaults.standard.string(forKey: "content") ?? ""
-        let publishedAt = UserDefaults.standard.string(forKey: "publishedAt") ?? ""
+            let savedNews = SavedNews(context: context)
+            savedNews.title = selectedNews.title
+            savedNews.urlToImage = selectedNews.urlToImage
+            savedNews.publishedAt = selectedNews.publishedAt
+            savedNews.content = selectedNews.content
 
-        let savedNews = SavedNews(title: title, urlToImage: imageUrl, publishedAt: publishedAt, content: content)
-
-        savedList.append(savedNews)
-
-        print(savedList)
+        appDelegate.saveContext()
+        
+        
+        
+//        func saveNewsToUserDefaults(news: Article) {
+//            let uDefaults = UserDefaults.standard
+//            uDefaults.set(news.title, forKey: "title")
+//            uDefaults.set(news.urlToImage, forKey: "imageUrl")
+//            uDefaults.set(news.content, forKey: "content")
+//            uDefaults.set(news.publishedAt, forKey: "publishedAt")
+//        }
+//
+//        let selectedNews = news[indexPath.row]
+//        saveNewsToUserDefaults(news: selectedNews)
+//
+//        let title = UserDefaults.standard.string(forKey: "title") ?? ""
+//        let imageUrl = UserDefaults.standard.string(forKey: "imageUrl") ?? ""
+//        let content = UserDefaults.standard.string(forKey: "content") ?? ""
+//        let publishedAt = UserDefaults.standard.string(forKey: "publishedAt") ?? ""
+//
+//        let savedNews = SavedNews(title: title, urlToImage: imageUrl, publishedAt: publishedAt, content: content)
+//
+//        savedList.append(savedNews)
+//
+//        print(savedList)
 
         
         

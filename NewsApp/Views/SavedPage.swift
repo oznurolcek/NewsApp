@@ -9,8 +9,11 @@ import UIKit
 
 final class SavedPage: UIViewController {
 
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var savedTableView: UITableView!
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var savedList = [SavedNews]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,12 +22,22 @@ final class SavedPage: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
+        fetchSavedList()
         savedTableView.reloadData()
     }
     
     private func prepareTableView() {
         savedTableView.dataSource = self
         savedTableView.delegate = self
+    }
+    
+    func fetchSavedList() {
+        do {
+            savedList = try context.fetch(SavedNews.fetchRequest())
+        } catch {
+            print(error)
+        }
+        
     }
     
 }
@@ -67,9 +80,11 @@ extension SavedPage: UITableViewDelegate, UITableViewDataSource {
             detailVC.newsImage = newsImage
             detailVC.newsDate = newsDate
             
-//            self.navigationController?.pushViewController(detailVC, animated: true)
-            detailVC.modalPresentationStyle = .fullScreen
-            self.present(detailVC, animated: true)
+//            present(detailVC, animated: true, completion: nil)
+            
+            self.navigationController?.pushViewController(detailVC, animated: true)
+//            detailVC.modalPresentationStyle = .fullScreen
+//            self.present(detailVC, animated: true)
         }
 
     }
