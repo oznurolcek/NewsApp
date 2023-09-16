@@ -64,7 +64,7 @@ final class NewsPage: UIViewController {
     private func prepareDarkMode() {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let appDelegate = windowScene?.windows.first
-        if darkModeEnabled {
+        if darkModeEnabled == true {
             appDelegate?.overrideUserInterfaceStyle = .dark
         } else {
             appDelegate?.overrideUserInterfaceStyle = .light
@@ -172,22 +172,31 @@ final class NewsPage: UIViewController {
 //MARK: UITableView
 extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol{
     func saveNews(indexPath: IndexPath) {
-//        var list : [Article] = []
-//
-//        list.append(news[indexPath.row])
-//        let savedList = UserDefaults.standard
-//        savedList.set(list, forKey: "titleList")
-//        let titleList = savedList.array(forKey: "titleList") as? [Article] ?? [Article]()
-//        print(titleList)
-//
-//        var imageList: [String] = []
-//        if let item = news[indexPath.row].urlToImage {
-//            imageList.append(item)
-//            let savedList = UserDefaults.standard
-//            savedList.set(imageList, forKey: "imageList")
-//            let imageList = savedList.array(forKey: "imageList") as? [String] ?? [String]()
-//            print(imageList)
-//        }
+
+        
+        func saveNewsToUserDefaults(news: Article) {
+            let uDefaults = UserDefaults.standard
+            uDefaults.set(news.title, forKey: "title")
+            uDefaults.set(news.urlToImage, forKey: "imageUrl")
+            uDefaults.set(news.content, forKey: "content")
+            uDefaults.set(news.publishedAt, forKey: "publishedAt")
+        }
+
+        let selectedNews = news[indexPath.row]
+        saveNewsToUserDefaults(news: selectedNews)
+
+        let title = UserDefaults.standard.string(forKey: "title") ?? ""
+        let imageUrl = UserDefaults.standard.string(forKey: "imageUrl") ?? ""
+        let content = UserDefaults.standard.string(forKey: "content") ?? ""
+        let publishedAt = UserDefaults.standard.string(forKey: "publishedAt") ?? ""
+
+        let savedNews = SavedNews(title: title, urlToImage: imageUrl, publishedAt: publishedAt, content: content)
+
+        savedList.append(savedNews)
+
+        print(savedList)
+
+        
         
     }
     

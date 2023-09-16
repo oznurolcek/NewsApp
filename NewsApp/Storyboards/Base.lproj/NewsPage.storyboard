@@ -30,7 +30,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIT-Uj-HfR">
                                                     <rect key="frame" x="8" y="8" width="377" height="153"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h7Z-PA-96M">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_load_image" translatesAutoresizingMaskIntoConstraints="NO" id="h7Z-PA-96M">
                                                             <rect key="frame" x="8" y="8" width="131" height="137"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="131" id="HdX-uh-GP1"/>
@@ -311,6 +311,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="yzk-P0-uyk"/>
                         <color key="backgroundColor" name="OnPrimaryColor"/>
                         <constraints>
                             <constraint firstItem="2f7-hN-cmY" firstAttribute="top" secondItem="hD6-Pr-mxE" secondAttribute="bottom" constant="8" id="2Ld-f5-1sr"/>
@@ -338,6 +339,7 @@
         <image name="ic_categories" width="2000" height="2000"/>
         <image name="ic_home" width="32" height="32"/>
         <image name="ic_home_fill" width="32" height="32"/>
+        <image name="ic_load_image" width="100" height="100"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <namedColor name="Background">
             <color red="0.97254901960784312" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

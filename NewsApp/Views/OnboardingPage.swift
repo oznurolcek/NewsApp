@@ -44,13 +44,6 @@ final class OnboardingPage: UIViewController {
         signUpButton.isHidden = true
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       if segue.identifier == "toLoginPage" {
-           let vc = segue.destination as! LoginPage
-           vc.isLogin = isLogin
-       }
-    }
-    
     @IBAction func skipButtonAct(_ sender: Any) {
         showPageItem(at: 2)
         showItems(false)
@@ -59,13 +52,30 @@ final class OnboardingPage: UIViewController {
     @IBAction func signUpButtonAct(_ sender: Any) {
         isLogin = false
         UserDefaults.standard.set(true, forKey: "openedApp")
-        performSegue(withIdentifier: "toLoginPage", sender: nil)
+        let storyboard = UIStoryboard(name: "LoginPage", bundle: nil)
+                
+        if let vc = storyboard.instantiateViewController(withIdentifier: "LoginPage") as? LoginPage {
+            
+            vc.isLogin = isLogin
+            
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }
+        
     }
     
     @IBAction func loginButtonAct(_ sender: Any) {
         isLogin = true
         UserDefaults.standard.set(true, forKey: "openedApp")
-        performSegue(withIdentifier: "toLoginPage", sender: nil)
+        let storyboard = UIStoryboard(name: "LoginPage", bundle: nil)
+                
+        if let vc = storyboard.instantiateViewController(withIdentifier: "LoginPage") as? LoginPage {
+            
+            vc.isLogin = isLogin
+            
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }
     }
     
     @IBAction func pageControlAct(_ sender: Any) {

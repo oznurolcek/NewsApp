@@ -9,9 +9,15 @@ import UIKit
 
 class SavedNewsCell: UITableViewCell {
 
+    
+    @IBOutlet weak var newsImageView: UIImageView!
+    @IBOutlet weak var titleBackView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        titleBackView.layer.cornerRadius = 16
+        newsImageView.layer.cornerRadius = 16
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

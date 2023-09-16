@@ -34,7 +34,6 @@ class LoginSegmentViewController: UIViewController {
                     let storyboard = UIStoryboard(name: "NewsPage", bundle: nil)
                     let vc = (storyboard.instantiateViewController(withIdentifier: "CustomTabBarController") as? CustomTabBarController)!
                     vc.modalPresentationStyle = .fullScreen
-//                    vc.modalTransitionStyle = .flipHorizontal
                     self.present(vc, animated: true)
                 }
             })
