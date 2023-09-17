@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-let darkModeEnabled = UserDefaults.standard.bool(forKey: "darkModeEnabled")
+let defaults = UserDefaults.standard
 
 final class ProfilePage: UIViewController {
 
@@ -39,24 +39,26 @@ final class ProfilePage: UIViewController {
             logoutButton.isHidden = false
             emailLabel.text = FirebaseAuth.Auth.auth().currentUser?.email
         }
-        modeSwitchButton.isOn = darkModeEnabled
+        modeSwitchButton.isOn = defaults.bool(forKey: "darkModeEnabled")
         
     }
     
     @IBAction func modeSwitchButtonAct(_ sender: UISwitch) {
-        let defaults = UserDefaults.standard
         
         if #available(iOS 13.0, *) {
             let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
             let appDelegate = windowScene?.windows.first
             if sender.isOn {
-                appDelegate?.overrideUserInterfaceStyle = .dark
                 defaults.set(true, forKey: "darkModeEnabled")
-                return
-                
+                DispatchQueue.main.asyncAfter(deadline: .now()){
+                    appDelegate?.overrideUserInterfaceStyle = .dark
+                }
             } else {
-                appDelegate?.overrideUserInterfaceStyle = .light
                 defaults.set(false, forKey: "darkModeEnabled")
+                DispatchQueue.main.asyncAfter(deadline: .now()){
+                    appDelegate?.overrideUserInterfaceStyle = .light
+                }
+                
             }
             
         }

@@ -18,6 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let appDelegate = windowScene?.windows.first
+        if defaults.bool(forKey: "darkModeEnabled") {
+            appDelegate?.overrideUserInterfaceStyle = .dark
+        } else {
+            appDelegate?.overrideUserInterfaceStyle = .light
+        }
         return true
     }
 

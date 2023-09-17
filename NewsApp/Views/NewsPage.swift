@@ -69,7 +69,7 @@ final class NewsPage: UIViewController {
     private func prepareDarkMode() {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let appDelegate = windowScene?.windows.first
-        if darkModeEnabled == true {
+        if defaults.bool(forKey: "darkModeEnabled"){
             appDelegate?.overrideUserInterfaceStyle = .dark
         } else {
             appDelegate?.overrideUserInterfaceStyle = .light
