@@ -45,8 +45,6 @@ class NewsCell: UITableViewCell {
         } else {
             savedButton.setImage((UIImage(systemName: "bookmark")), for: .normal)
         }
-        
-        
     }
     
 }

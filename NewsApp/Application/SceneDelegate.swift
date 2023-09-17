@@ -26,8 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             let currentUser = Auth.auth().currentUser
             if currentUser != nil {
-                storyboard = UIStoryboard(name: "OnboardingPage", bundle: nil)
-                vc = (storyboard.instantiateViewController(withIdentifier: "OnboardingPage") as? OnboardingPage)!
+                storyboard = UIStoryboard(name: "NewsPage", bundle: nil)
+                vc = (storyboard.instantiateViewController(withIdentifier: "CustomTabBarController") as? CustomTabBarController)!
             } else {
                 storyboard = UIStoryboard(name: "LoginPage", bundle: nil)
                 vc = (storyboard.instantiateViewController(withIdentifier: "LoginPage") as? LoginPage)!

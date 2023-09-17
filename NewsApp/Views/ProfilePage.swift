@@ -8,6 +8,8 @@
 import UIKit
 import FirebaseAuth
 
+let darkModeEnabled = UserDefaults.standard.bool(forKey: "darkModeEnabled")
+
 final class ProfilePage: UIViewController {
 
     @IBOutlet weak var imageBackgroundView: UIView!
@@ -16,8 +18,6 @@ final class ProfilePage: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var modeSwitchButton: UISwitch!
     @IBOutlet weak var backgroundView: UIView!
-    
-    let darkModeEnabled = UserDefaults.standard.bool(forKey: "darkModeEnabled")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,11 +53,13 @@ final class ProfilePage: UIViewController {
                 appDelegate?.overrideUserInterfaceStyle = .dark
                 defaults.set(true, forKey: "darkModeEnabled")
                 return
+                
+            } else {
+                appDelegate?.overrideUserInterfaceStyle = .light
+                defaults.set(false, forKey: "darkModeEnabled")
             }
-            appDelegate?.overrideUserInterfaceStyle = .light
-            defaults.set(false, forKey: "darkModeEnabled")
+            
         }
-        
     }
     
     @IBAction func logoutAct(_ sender: Any) {
@@ -65,7 +67,6 @@ final class ProfilePage: UIViewController {
         let storyboard = UIStoryboard(name: "LoginPage", bundle: nil)
         let vc = (storyboard.instantiateViewController(withIdentifier: "LoginPage") as? LoginPage)!
         vc.modalPresentationStyle = .fullScreen
-//        vc.modalTransitionStyle = .flipHorizontal
         self.present(vc, animated: true)
         
     }

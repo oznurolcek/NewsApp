@@ -19,6 +19,7 @@ final class SavedPage: UIViewController {
         super.viewDidLoad()
         
         prepareTableView()
+
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -30,6 +31,7 @@ final class SavedPage: UIViewController {
         savedTableView.dataSource = self
         savedTableView.delegate = self
     }
+
     
     func fetchSavedList() {
         do {
@@ -80,11 +82,7 @@ extension SavedPage: UITableViewDelegate, UITableViewDataSource {
             detailVC.newsImage = newsImage
             detailVC.newsDate = newsDate
             
-//            present(detailVC, animated: true, completion: nil)
-            
             self.navigationController?.pushViewController(detailVC, animated: true)
-//            detailVC.modalPresentationStyle = .fullScreen
-//            self.present(detailVC, animated: true)
         }
 
     }

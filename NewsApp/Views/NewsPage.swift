@@ -24,8 +24,6 @@ final class NewsPage: UIViewController {
         "https://newsapi.org/v2/everything?q=\(self.categories)&apiKey=\(API_KEY)"
     }
     
-    let darkModeEnabled = UserDefaults.standard.bool(forKey: "darkModeEnabled")
-    
     var isSearch = false
     
     var isMenuOpen: Bool = false
@@ -37,13 +35,14 @@ final class NewsPage: UIViewController {
         
         prepareTableView()
         prepareSearchBar()
+        prepareDarkMode()
         sideMenuView.isHidden = !isMenuOpen
     
     }
     
     override func viewWillAppear(_ animated: Bool) {
         getNews()
-        prepareDarkMode()
+
     }
     
     private func prepareTableView() {
@@ -56,12 +55,15 @@ final class NewsPage: UIViewController {
     }
     
     func getNews() {
-        NetworkManager.shared.fetchNews(url: URL(string: getUrl(categories: categories))!, completion: { news in
-            self.news = news
-            DispatchQueue.main.async {
-                self.newsTableView.reloadData()
-            }
-        })
+        if let url = URL(string: getUrl(categories: categories)) {
+            NetworkManager.shared.fetchNews(url: url, completion: { news in
+                self.news = news
+                DispatchQueue.main.async {
+                    self.newsTableView.reloadData()
+                }
+            })
+        }
+        
     }
     
     private func prepareDarkMode() {
@@ -242,13 +244,14 @@ extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol
 //MARK: UISearchBar
 extension NewsPage: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        categories = searchText
         if searchText == "" {
+            categories = "default"
             isSearch = false
         } else {
+            categories = searchText
             isSearch = true
         }
-        newsTableView.reloadData()
+        getNews()
     }
 }
 
