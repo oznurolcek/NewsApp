@@ -70,7 +70,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="361" height="610"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_onboarding1" translatesAutoresizingMaskIntoConstraints="NO" id="NAU-It-doQ">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_onboarding1" translatesAutoresizingMaskIntoConstraints="NO" id="NAU-It-doQ">
                                                     <rect key="frame" x="5.6666666666666572" y="16" width="350" height="300"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="300" id="Mto-25-JAe"/>
@@ -79,7 +79,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wxf-Fk-nqM">
                                                     <rect key="frame" x="5.6666666666666572" y="340" width="350" height="28.666666666666686"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                                     <color key="textColor" name="PrimaryColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -91,11 +91,11 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="k7D-D3-9rr" firstAttribute="top" secondItem="Wxf-Fk-nqM" secondAttribute="bottom" constant="16" id="4hw-EM-Ram"/>
+                                                <constraint firstItem="k7D-D3-9rr" firstAttribute="top" secondItem="Wxf-Fk-nqM" secondAttribute="bottom" constant="24" id="4hw-EM-Ram"/>
                                                 <constraint firstItem="NAU-It-doQ" firstAttribute="top" secondItem="I0E-UO-aLB" secondAttribute="top" constant="16" id="6BC-tD-PrJ"/>
                                                 <constraint firstItem="k7D-D3-9rr" firstAttribute="leading" secondItem="Wxf-Fk-nqM" secondAttribute="leading" id="GOF-gL-xhz"/>
                                                 <constraint firstItem="Wxf-Fk-nqM" firstAttribute="leading" secondItem="NAU-It-doQ" secondAttribute="leading" id="Gd2-8i-sXB"/>
-                                                <constraint firstItem="Wxf-Fk-nqM" firstAttribute="top" secondItem="NAU-It-doQ" secondAttribute="bottom" constant="24" id="TgY-3G-cxq"/>
+                                                <constraint firstItem="Wxf-Fk-nqM" firstAttribute="top" secondItem="NAU-It-doQ" secondAttribute="bottom" constant="36" id="TgY-3G-cxq"/>
                                                 <constraint firstItem="Wxf-Fk-nqM" firstAttribute="trailing" secondItem="NAU-It-doQ" secondAttribute="trailing" id="ZmX-zV-PRz"/>
                                                 <constraint firstItem="NAU-It-doQ" firstAttribute="centerX" secondItem="I0E-UO-aLB" secondAttribute="centerX" id="giA-YD-o1F"/>
                                                 <constraint firstItem="k7D-D3-9rr" firstAttribute="trailing" secondItem="Wxf-Fk-nqM" secondAttribute="trailing" id="sNJ-fb-0Dc"/>

@@ -187,33 +187,6 @@ extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol
             savedNews.content = selectedNews.content
 
         appDelegate.saveContext()
-        
-        
-        
-//        func saveNewsToUserDefaults(news: Article) {
-//            let uDefaults = UserDefaults.standard
-//            uDefaults.set(news.title, forKey: "title")
-//            uDefaults.set(news.urlToImage, forKey: "imageUrl")
-//            uDefaults.set(news.content, forKey: "content")
-//            uDefaults.set(news.publishedAt, forKey: "publishedAt")
-//        }
-//
-//        let selectedNews = news[indexPath.row]
-//        saveNewsToUserDefaults(news: selectedNews)
-//
-//        let title = UserDefaults.standard.string(forKey: "title") ?? ""
-//        let imageUrl = UserDefaults.standard.string(forKey: "imageUrl") ?? ""
-//        let content = UserDefaults.standard.string(forKey: "content") ?? ""
-//        let publishedAt = UserDefaults.standard.string(forKey: "publishedAt") ?? ""
-//
-//        let savedNews = SavedNews(title: title, urlToImage: imageUrl, publishedAt: publishedAt, content: content)
-//
-//        savedList.append(savedNews)
-//
-//        print(savedList)
-
-        
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

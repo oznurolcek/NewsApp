@@ -123,7 +123,7 @@
                                 </connections>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5p-Bl-NaE">
-                                <rect key="frame" x="-280" y="0.0" width="260" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="260" height="852"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFP-wj-DB4">
                                         <rect key="frame" x="0.0" y="0.0" width="260" height="852"/>
@@ -155,7 +155,7 @@
                             <constraint firstItem="gda-YM-Ipu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hSe-KH-6kN"/>
                             <constraint firstItem="oK4-5w-hca" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hhY-IO-6Gj"/>
                             <constraint firstItem="oK4-5w-hca" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uTJ-qb-FSt"/>
-                            <constraint firstItem="q5p-Bl-NaE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="-280" id="vXw-UQ-mHU"/>
+                            <constraint firstItem="q5p-Bl-NaE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vXw-UQ-mHU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="News" largeTitleDisplayMode="always" id="RjU-Wu-IhK">
