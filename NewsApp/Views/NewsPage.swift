@@ -36,6 +36,7 @@ final class NewsPage: UIViewController {
         prepareTableView()
         prepareSearchBar()
         prepareDarkMode()
+        prepareNavBar()
         sideMenuView.isHidden = !isMenuOpen
     
     }
@@ -74,6 +75,16 @@ final class NewsPage: UIViewController {
         } else {
             appDelegate?.overrideUserInterfaceStyle = .light
         }
+    }
+    
+    private func prepareNavBar() {
+        let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: 270, height: 40))
+             let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 270, height: 40))
+             imageView.contentMode = .scaleAspectFit
+             let image = UIImage(named: "logo")
+             imageView.image = image
+             logoContainer.addSubview(imageView)
+             navigationItem.titleView = logoContainer
     }
     
 //    func reloadTableView() -> () -> () {
