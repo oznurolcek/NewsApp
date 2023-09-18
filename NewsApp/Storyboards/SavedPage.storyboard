@@ -29,41 +29,41 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="295"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="orX-ma-KDO">
-                                                    <rect key="frame" x="20" y="14" width="353" height="194"/>
-                                                    <color key="tintColor" name="PrimaryColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="200" id="uIE-5K-M9t"/>
-                                                    </constraints>
-                                                    <imageReference key="image" image="photo" catalog="system" symbolScale="small"/>
-                                                </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1FR-W8-gib">
-                                                    <rect key="frame" x="20" y="219" width="353" height="65"/>
+                                                    <rect key="frame" x="20" y="0.0" width="353" height="284"/>
                                                     <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="orX-ma-KDO">
+                                                            <rect key="frame" x="16" y="19" width="321" height="174"/>
+                                                            <color key="tintColor" name="PrimaryColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="180" id="z5I-c1-g6M"/>
+                                                            </constraints>
+                                                            <imageReference key="image" image="photo" catalog="system" symbolScale="small"/>
+                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biden Administration Moves to Bar Drilling on Millions of Acres in Alaska" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktg-D3-Vfc">
-                                                            <rect key="frame" x="8" y="8" width="337" height="49"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                            <color key="textColor" name="TextColor"/>
+                                                            <rect key="frame" x="16" y="204" width="321" height="64"/>
+                                                            <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="18"/>
+                                                            <color key="textColor" name="OnTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" name="OnBackground"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="65" id="7We-t9-Xeu"/>
-                                                        <constraint firstAttribute="trailing" secondItem="ktg-D3-Vfc" secondAttribute="trailing" constant="8" id="Fen-Wx-jqP"/>
-                                                        <constraint firstItem="ktg-D3-Vfc" firstAttribute="top" secondItem="1FR-W8-gib" secondAttribute="top" constant="8" id="Juq-KQ-OuP"/>
-                                                        <constraint firstAttribute="bottom" secondItem="ktg-D3-Vfc" secondAttribute="bottom" constant="8" id="bvh-Yz-xWO"/>
-                                                        <constraint firstItem="ktg-D3-Vfc" firstAttribute="leading" secondItem="1FR-W8-gib" secondAttribute="leading" constant="8" id="itJ-Tt-Qks"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ktg-D3-Vfc" secondAttribute="trailing" constant="16" id="6DK-h1-p1B"/>
+                                                        <constraint firstAttribute="trailing" secondItem="orX-ma-KDO" secondAttribute="trailing" constant="16" id="M9J-Rn-G8U"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ktg-D3-Vfc" secondAttribute="bottom" constant="16" id="Zg6-nc-aXF"/>
+                                                        <constraint firstItem="orX-ma-KDO" firstAttribute="top" secondItem="1FR-W8-gib" secondAttribute="top" constant="16" id="ccW-ph-MxH"/>
+                                                        <constraint firstItem="ktg-D3-Vfc" firstAttribute="leading" secondItem="1FR-W8-gib" secondAttribute="leading" constant="16" id="plc-lA-4wB"/>
+                                                        <constraint firstItem="orX-ma-KDO" firstAttribute="leading" secondItem="1FR-W8-gib" secondAttribute="leading" constant="16" id="s2d-xj-jb6"/>
+                                                        <constraint firstItem="ktg-D3-Vfc" firstAttribute="top" secondItem="orX-ma-KDO" secondAttribute="bottom" constant="8" id="yeb-iB-nNf"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" name="Background"/>
                                             <constraints>
-                                                <constraint firstItem="1FR-W8-gib" firstAttribute="top" secondItem="orX-ma-KDO" secondAttribute="bottom" constant="8" id="Csd-vD-Q7L"/>
                                                 <constraint firstItem="1FR-W8-gib" firstAttribute="leading" secondItem="UH9-Qj-DHU" secondAttribute="leadingMargin" id="Ncd-oY-Lby"/>
-                                                <constraint firstItem="orX-ma-KDO" firstAttribute="leading" secondItem="UH9-Qj-DHU" secondAttribute="leadingMargin" id="Zg0-IX-vI7"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="orX-ma-KDO" secondAttribute="trailing" id="sJe-1F-Kca"/>
-                                                <constraint firstItem="orX-ma-KDO" firstAttribute="top" secondItem="UH9-Qj-DHU" secondAttribute="topMargin" id="xlc-KP-OJ9"/>
+                                                <constraint firstItem="1FR-W8-gib" firstAttribute="top" secondItem="UH9-Qj-DHU" secondAttribute="top" id="hdD-G7-Qou"/>
+                                                <constraint firstItem="1FR-W8-gib" firstAttribute="bottom" secondItem="UH9-Qj-DHU" secondAttribute="bottomMargin" id="ugL-GH-PBT"/>
                                                 <constraint firstItem="1FR-W8-gib" firstAttribute="trailing" secondItem="UH9-Qj-DHU" secondAttribute="trailingMargin" id="zBd-Fy-fVb"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -110,11 +110,11 @@
         <namedColor name="OnBackground">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="OnTextColor">
+            <color red="0.2196078431372549" green="0.22745098039215686" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PrimaryColor">
             <color red="0.9137254901960784" green="0.41176470588235292" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="TextColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
