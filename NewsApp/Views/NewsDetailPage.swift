@@ -24,6 +24,15 @@ final class NewsDetailPage: UIViewController {
         preparePage()
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let isNewsSaved = viewModel.checkIfNewsIsSaved(withTitle: viewModel.newsTitle!)
+        if isNewsSaved {
+            savedButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        } else {
+            savedButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        }
+    }
 
     private func preparePage() {
         imageView.layer.cornerRadius = 16
@@ -36,37 +45,16 @@ final class NewsDetailPage: UIViewController {
     }
     
     @IBAction func savedButtonAct(_ sender: Any) {
-        updateSavedNews(withTitle: viewModel.newsTitle!)
-    }
-    
-    
-    func updateSavedNews(withTitle title: String) {
-        let context = appDelegate.persistentContainer.viewContext
+        let isNewsSaved = viewModel.checkIfNewsIsSaved(withTitle: viewModel.newsTitle!)
         
-        let fetchRequest: NSFetchRequest<SavedNews> = SavedNews.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "title == %@", title)
-        
-        do {
-            let existingNews = try context.fetch(fetchRequest)
-            
-            if let newsToDelete = existingNews.first {
-                defaults.set(false, forKey: "isSaved")
-                context.delete(newsToDelete)
-                appDelegate.saveContext()
-                savedButton.setImage((UIImage(systemName: "bookmark")), for: .normal)
-            } else {
-                defaults.set(true, forKey: "isSaved")
-                let savedNews = SavedNews(context: context)
-                savedNews.title = viewModel.newsTitle
-                savedNews.urlToImage = viewModel.newsImage
-                savedNews.publishedAt = viewModel.newsDate
-                savedNews.content = viewModel.newsDescription
-
-                appDelegate.saveContext()
-                savedButton.setImage((UIImage(systemName: "bookmark.fill")), for: .normal)
-            }
-        } catch {
-            print(error)
+        if isNewsSaved {
+            savedButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        } else {
+            savedButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
         }
+        viewModel.updateSavedNews(withTitle: viewModel.newsTitle!)
     }
 }
+
+
+
