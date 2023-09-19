@@ -10,6 +10,9 @@ import UIKit
 class SideMenu: UIViewController {
 
     @IBOutlet weak var categoriesTableView: UITableView!
+    
+    private var viewModel = SideMenuViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,13 +28,14 @@ class SideMenu: UIViewController {
 
 extension SideMenu: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return NewsCategories.allCases.count
+        return viewModel.numberOfItems(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = categoriesTableView.dequeueReusableCell(withIdentifier: "SideMenuCell", for: indexPath) as! SideMenuCell
-        cell.categoryLabel.text = NewsCategories.allCases[indexPath.row].rawValue
-        cell.categoryImage.image = UIImage(systemName: NewsCategories.allCases[indexPath.row].imageName)
+        let category = viewModel.cellForRow(at: indexPath)
+        cell.categoryLabel.text = category.rawValue
+        cell.categoryImage.image = UIImage(systemName: category.imageName)
         cell.categoryImage.tintColor = .white
         return cell
     }
@@ -42,7 +46,7 @@ extension SideMenu: UITableViewDelegate, UITableViewDataSource {
                 
         if let vc = storyboard.instantiateViewController(withIdentifier: "NewsPage") as? NewsPage {
             
-            vc.categories = categories
+            vc.viewModel.categories = categories
             
             self.navigationController?.pushViewController(vc, animated: false)
         }

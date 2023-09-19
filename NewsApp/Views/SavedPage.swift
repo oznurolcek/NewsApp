@@ -11,19 +11,15 @@ final class SavedPage: UIViewController {
 
     @IBOutlet weak var savedTableView: UITableView!
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    var savedList = [SavedNews]()
-    
+    var viewModel = SavedNewsViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         prepareTableView()
 
-        
     }
     override func viewWillAppear(_ animated: Bool) {
-        fetchSavedList()
+        viewModel.fetchSavedList()
         savedTableView.reloadData()
     }
     
@@ -31,40 +27,20 @@ final class SavedPage: UIViewController {
         savedTableView.dataSource = self
         savedTableView.delegate = self
     }
-
-    
-    func fetchSavedList() {
-        do {
-            savedList = try context.fetch(SavedNews.fetchRequest())
-        } catch {
-            print(error)
-        }
-        
-    }
     
 }
 
 extension SavedPage: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return savedList.count
+        return viewModel.numberOfItems(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = savedTableView.dequeueReusableCell(withIdentifier: "SavedNewsCell", for: indexPath) as! SavedNewsCell
-        cell.newsImageView.image = UIImage(named: "ic_categories")
-        cell.titleLabel.text = savedList[indexPath.row].title
-        
-        if let urlToImage = savedList[indexPath.row].urlToImage {
-            if let url = URL(string: urlToImage) {
-                DispatchQueue.global().async {
-                    if let data = try? Data(contentsOf: url) {
-                        DispatchQueue.main.async {
-                            cell.newsImageView.image = UIImage(data: data)
-                        }
-                    }
-                }
-            }
+        if let urlToImage = viewModel.cellForRow(at: indexPath).urlToImage {
+            cell.newsImageView.downloaded(from: urlToImage)
         }
+        cell.titleLabel.text = viewModel.cellForRow(at: indexPath).title
         return cell
     }
     
@@ -72,16 +48,16 @@ extension SavedPage: UITableViewDelegate, UITableViewDataSource {
         let storyboard = UIStoryboard(name: "NewsDetailPage", bundle: nil)
                 
         if let detailVC = storyboard.instantiateViewController(withIdentifier: "NewsDetailPage") as? NewsDetailPage {
-            let newsTitle = savedList[indexPath.row].title
-            let newsDescription = savedList[indexPath.row].content
-            let newsDate = savedList[indexPath.row].publishedAt
-            let newsImage = savedList[indexPath.row].urlToImage
+            let newsTitle = viewModel.cellForRow(at: indexPath).title
+            let newsDescription = viewModel.cellForRow(at: indexPath).content
+            let newsDate = viewModel.cellForRow(at: indexPath).publishedAt
+            let newsImage = viewModel.cellForRow(at: indexPath).urlToImage
             
-            detailVC.newsTitle = newsTitle
-            detailVC.newsDescription = newsDescription
-            detailVC.newsImage = newsImage
-            detailVC.newsDate = newsDate
-            
+            detailVC.viewModel.newsTitle = newsTitle
+            detailVC.viewModel.newsDescription = newsDescription
+            detailVC.viewModel.newsImage = newsImage
+            detailVC.viewModel.newsDate = newsDate
+        
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
 

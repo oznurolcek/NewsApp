@@ -5,8 +5,16 @@
 //  Created by Öznur Ölçek on 5.09.2023.
 //
 
-import Foundation
+import UIKit
 
 final class OnboardingViewModel {
+    
+    func numberOfItems(in section: Int) -> Int {
+        return onboardingArray.count
+    }
+    
+    func cellForRow(at indexPath: IndexPath) -> OnboardingInfos {
+        return onboardingArray[indexPath.row]
+    }
     
 }

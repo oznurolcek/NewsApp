@@ -7,36 +7,27 @@
 
 import UIKit
 
+let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
 final class NewsDetailViewModel {
     var newsTitle: String?
     var newsDescription: String?
     var newsDate: String?
     var newsImage: String?
-    
-    init(newsTitle: String?, newsDescription: String?, newsDate: String?, newsImage: String?) {
-        self.newsTitle = newsTitle
-        self.newsDescription = newsDescription
-        self.newsDate = newsDate
-        self.newsImage = newsImage
-    }
-    
-    func loadImage(completion: @escaping (UIImage?) -> Void) {
-        if let urlToImage = newsImage, let url = URL(string: urlToImage) {
-            DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: url) {
-                    let image = UIImage(data: data)
-                    DispatchQueue.main.async {
-                        completion(image)
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        completion(nil)
-                    }
-                }
+    var savedList = [SavedNews]()
+        
+    func dateFormatter(news: String) -> String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+
+            if let date = dateFormatter.date(from: newsDate!) {
+                let outputDateFormatter = DateFormatter()
+                outputDateFormatter.dateFormat = "dd.MM.yyyy"
+
+                let formattedDate = outputDateFormatter.string(from: date)
+                return formattedDate
             }
-        } else {
-            completion(nil)
-        }
+        return ""
     }
 }
 

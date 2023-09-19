@@ -8,6 +8,10 @@
 import UIKit
 import CoreData
 
+protocol NewsPageProtocol: AnyObject {
+    
+}
+
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 final class NewsPage: UIViewController {
@@ -17,12 +21,7 @@ final class NewsPage: UIViewController {
     @IBOutlet weak var sideMenuView: UIView!
     @IBOutlet weak var sideMenuLeadingConstraint: NSLayoutConstraint!
     
-    var news: [Article] = []
-    var categories: String = "default"
-    
-    func getUrl(categories: String) -> String {
-        "https://newsapi.org/v2/everything?q=\(self.categories)&apiKey=\(API_KEY)"
-    }
+    var viewModel = NewsViewModel()
     
     var isSearch = false
     
@@ -35,15 +34,12 @@ final class NewsPage: UIViewController {
         
         prepareTableView()
         prepareSearchBar()
-        prepareDarkMode()
+        viewModel.darkMode()
         prepareNavBar()
+        viewModel.getNews(categories: viewModel.categories)
+        viewModel.onSuccess = reloadTableView()
         sideMenuView.isHidden = !isMenuOpen
     
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        getNews()
-
     }
     
     private func prepareTableView() {
@@ -53,28 +49,6 @@ final class NewsPage: UIViewController {
     
     private func prepareSearchBar() {
         searchBar.delegate = self
-    }
-    
-    func getNews() {
-        if let url = URL(string: getUrl(categories: categories)) {
-            NetworkManager.shared.fetchNews(url: url, completion: { news in
-                self.news = news
-                DispatchQueue.main.async {
-                    self.newsTableView.reloadData()
-                }
-            })
-        }
-        
-    }
-    
-    private func prepareDarkMode() {
-        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-        let appDelegate = windowScene?.windows.first
-        if defaults.bool(forKey: "darkModeEnabled"){
-            appDelegate?.overrideUserInterfaceStyle = .dark
-        } else {
-            appDelegate?.overrideUserInterfaceStyle = .light
-        }
     }
     
     private func prepareNavBar() {
@@ -87,13 +61,13 @@ final class NewsPage: UIViewController {
              navigationItem.titleView = logoContainer
     }
     
-//    func reloadTableView() -> () -> () {
-//        return {
-//            DispatchQueue.main.async {
-//                self.newsTableView.reloadData()
-//            }
-//        }
-//    }
+    func reloadTableView() -> () -> () {
+        return {
+            DispatchQueue.main.async {
+                self.newsTableView.reloadData()
+            }
+        }
+    }
    
 
 //MARK: Side Menu
@@ -191,37 +165,45 @@ extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol
         
         let context = appDelegate.persistentContainer.viewContext
         
-        let selectedNews = news[indexPath.row]
+        let fetchRequest: NSFetchRequest<SavedNews> = SavedNews.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "title == %@", (viewModel.cellForRow(at: indexPath)?.title)!)
+        
+        do {
+            let existingNews = try context.fetch(fetchRequest)
+            
+            if let newsToDelete = existingNews.first {
+                defaults.set(false, forKey: "isSaved")
+                context.delete(newsToDelete)
+                appDelegate.saveContext()
+                
+            } else {
+                defaults.set(true, forKey: "isSaved")
+                let savedNews = SavedNews(context: context)
+                savedNews.title = viewModel.cellForRow(at: indexPath)?.title
+                savedNews.urlToImage = viewModel.cellForRow(at: indexPath)?.urlToImage
+                savedNews.publishedAt = viewModel.cellForRow(at: indexPath)?.publishedAt
+                savedNews.content = viewModel.cellForRow(at: indexPath)?.description
 
-            let savedNews = SavedNews(context: context)
-            savedNews.title = selectedNews.title
-            savedNews.urlToImage = selectedNews.urlToImage
-            savedNews.publishedAt = selectedNews.publishedAt
-            savedNews.content = selectedNews.content
-
-        appDelegate.saveContext()
+                appDelegate.saveContext()
+               
+            }
+        } catch {
+            print(error)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return news.count
+        return viewModel.numberOfItems(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = newsTableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
-        if let urlToImage = news[indexPath.row].urlToImage {
-            if let url = URL(string: urlToImage) {
-                DispatchQueue.global().async {
-                    if let data = try? Data(contentsOf: url) {
-                        DispatchQueue.main.async {
-                            cell.newsImage.image = UIImage(data: data)
-                        }
-                    }
-                }
-            }
+        if let urlToImage = viewModel.cellForRow(at: indexPath)?.urlToImage {
+            cell.newsImage.downloaded(from: urlToImage)
         }
-        cell.titleLabel.text = news[indexPath.row].title
-        cell.descriptionLabel.text = news[indexPath.row].description
-        if let newsAuthor = news[indexPath.row].author {
+        cell.titleLabel.text = viewModel.cellForRow(at: indexPath)?.title
+        cell.descriptionLabel.text = viewModel.cellForRow(at: indexPath)?.description
+        if let newsAuthor = viewModel.cellForRow(at: indexPath)?.author {
             cell.authorLabel.text = "by \(newsAuthor)"
         }
     
@@ -236,15 +218,15 @@ extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol
         let storyboard = UIStoryboard(name: "NewsDetailPage", bundle: nil)
                 
         if let detailVC = storyboard.instantiateViewController(withIdentifier: "NewsDetailPage") as? NewsDetailPage {
-            let newsTitle = news[indexPath.row].title
-            let newsDescription = news[indexPath.row].content
-            let newsDate = news[indexPath.row].publishedAt
-            let newsImage = news[indexPath.row].urlToImage
+            let newsTitle = viewModel.cellForRow(at: indexPath)?.title
+            let newsDescription = viewModel.cellForRow(at: indexPath)?.content
+            let newsDate = viewModel.cellForRow(at: indexPath)?.publishedAt
+            let newsImage = viewModel.cellForRow(at: indexPath)?.urlToImage
             
-            detailVC.newsTitle = newsTitle
-            detailVC.newsDescription = newsDescription
-            detailVC.newsImage = newsImage
-            detailVC.newsDate = newsDate
+            detailVC.viewModel.newsTitle = newsTitle
+            detailVC.viewModel.newsDescription = newsDescription
+            detailVC.viewModel.newsImage = newsImage
+            detailVC.viewModel.newsDate = newsDate
             
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
@@ -255,14 +237,10 @@ extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol
 //MARK: UISearchBar
 extension NewsPage: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.getNews(categories: searchText)
         if searchText == "" {
-            categories = "default"
-            isSearch = false
-        } else {
-            categories = searchText
-            isSearch = true
+            viewModel.getNews(categories: viewModel.categories)
         }
-        getNews()
     }
 }
 

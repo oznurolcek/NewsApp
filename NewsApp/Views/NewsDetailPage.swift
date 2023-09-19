@@ -8,8 +8,6 @@
 import UIKit
 import CoreData
 
-let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
 final class NewsDetailPage: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -18,41 +16,27 @@ final class NewsDetailPage: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var savedButton: UIButton!
     
-    var newsTitle: String?
-    var newsDescription: String?
-    var newsDate: String?
-    var newsImage: String?
+    var viewModel = NewsDetailViewModel()
     
-    var savedList = [SavedNews]()
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        imageView.layer.cornerRadius = 16
 
         preparePage()
 
     }
 
     private func preparePage() {
-        titleLabel.text = newsTitle
-        descriptionLabel.text = newsDescription
-        dateLabel.text = newsDate
-        if let urlToImage = newsImage, let url = URL(string: urlToImage) {
-            DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: url) {
-                    DispatchQueue.main.async {
-                        self.imageView.image = UIImage(data: data)
-                    }
-                }
-            }
+        imageView.layer.cornerRadius = 16
+        titleLabel.text = viewModel.newsTitle
+        descriptionLabel.text = viewModel.newsDescription
+        dateLabel.text = viewModel.dateFormatter(news: viewModel.newsDate!)
+        if let urlToImage = viewModel.newsImage {
+            imageView.downloaded(from: urlToImage)
         }
     }
     
     @IBAction func savedButtonAct(_ sender: Any) {
-        updateSavedNews(withTitle: newsTitle!)
+        updateSavedNews(withTitle: viewModel.newsTitle!)
     }
     
     
@@ -73,10 +57,10 @@ final class NewsDetailPage: UIViewController {
             } else {
                 defaults.set(true, forKey: "isSaved")
                 let savedNews = SavedNews(context: context)
-                savedNews.title = newsTitle
-                savedNews.urlToImage = newsImage
-                savedNews.publishedAt = newsDate
-                savedNews.content = newsDescription
+                savedNews.title = viewModel.newsTitle
+                savedNews.urlToImage = viewModel.newsImage
+                savedNews.publishedAt = viewModel.newsDate
+                savedNews.content = viewModel.newsDescription
 
                 appDelegate.saveContext()
                 savedButton.setImage((UIImage(systemName: "bookmark.fill")), for: .normal)

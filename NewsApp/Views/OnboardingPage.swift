@@ -15,6 +15,8 @@ final class OnboardingPage: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var viewModel = OnboardingViewModel()
+    
     var isLogin: Bool = false
     
     override func viewDidLoad() {
@@ -100,15 +102,15 @@ final class OnboardingPage: UIViewController {
 //MARK: UICOllectionView
 extension OnboardingPage: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return onboardingArray.count
+        return viewModel.numberOfItems(in: section)
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OnboardingCell", for: indexPath) as! OnboardingCell
-        cell.titleLabel.text = onboardingArray[indexPath.row].title
-        cell.subTitleLabel.text = onboardingArray[indexPath.row].subTitle
-        cell.imageView.image = UIImage(named: onboardingArray[indexPath.row].imageName!)
+        cell.titleLabel.text = viewModel.cellForRow(at: indexPath).title
+        cell.subTitleLabel.text = viewModel.cellForRow(at: indexPath).subTitle
+        cell.imageView.image = UIImage(named: viewModel.cellForRow(at: indexPath).imageName!)
         return cell
     }
     
