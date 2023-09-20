@@ -8,6 +8,8 @@
 import UIKit
 
 final class OnboardingViewModel {
+    var isLogin: Bool = false
+    
     
     func numberOfItems(in section: Int) -> Int {
         return onboardingArray.count

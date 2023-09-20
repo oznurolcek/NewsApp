@@ -8,21 +8,20 @@
 import UIKit
 import CoreData
 
-protocol NewsViewModelProtocol {
-    func updateNews()
-    var view: NewsPageProtocol? { get set }
-}
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 final class NewsViewModel {
     var onSuccess: (() -> ())?
     var news: [Article] = []
     var categories: String = "default"
+    var isMenuOpen: Bool = false
+    var beginPoint: CGFloat = 0.0
+    var difference: CGFloat = 0.0
     
     var newsTitle: String?
     var newsDescription: String?
     var newsDate: String?
     var newsImage: String?
-    var view: NewsPageProtocol?
     
     func getNews(categories: String) {
         if let url = URL(string: "https://newsapi.org/v2/everything?q=\(categories)&apiKey=\(API_KEY)") {
@@ -51,38 +50,32 @@ final class NewsViewModel {
         }
     }
     
-//    func updateNews(title: String, savedNews: Article) {
-//        let context = appDelegate.persistentContainer.viewContext
-//
-//        let fetchRequest: NSFetchRequest<SavedNews> = SavedNews.fetchRequest()
-//        if let newsTitle = newsTitle {
-//            fetchRequest.predicate = NSPredicate(format: "title == %@", newsTitle)
-//        }
-//
-//
-//        do {
-//            let existingNews = try context.fetch(fetchRequest)
-//
-//            if let newsToDelete = existingNews.first {
-//                defaults.set(false, forKey: "isSaved")
-//                context.delete(newsToDelete)
-//                appDelegate.saveContext()
-//
-//            } else {
-//                defaults.set(true, forKey: "isSaved")
-//                let savedNews = SavedNews(context: context)
-//                savedNews.title = newsTitle
-//                savedNews.urlToImage = newsImage
-//                savedNews.publishedAt = newsDate
-//                savedNews.content = newsDescription
-//
-//                appDelegate.saveContext()
-//
-//            }
-//        } catch {
-//            print(error)
-//        }
-//    }
-    
-   
+    func saveNews(indexPath: IndexPath) {
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let fetchRequest: NSFetchRequest<SavedNews> = SavedNews.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "title == %@", cellForRow(at: indexPath)?.title ?? "")
+            
+            do {
+                let existingNews = try context.fetch(fetchRequest)
+                
+                if let newsToDelete = existingNews.first {
+                    defaults.set(false, forKey: "isSaved")
+                    context.delete(newsToDelete)
+                    appDelegate.saveContext()
+                    
+                } else {
+                    defaults.set(true, forKey: "isSaved")
+                    let savedNews = SavedNews(context: context)
+                    savedNews.title = cellForRow(at: indexPath)?.title
+                    savedNews.urlToImage = cellForRow(at: indexPath)?.urlToImage
+                    savedNews.publishedAt = cellForRow(at: indexPath)?.publishedAt
+                    savedNews.content = cellForRow(at: indexPath)?.description
+                    
+                    appDelegate.saveContext()
+                }
+            } catch {
+                print(error)
+            }
+        }
 }

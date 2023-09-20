@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CoreData
 
 final class NewsDetailPage: UIViewController {
 
@@ -16,13 +15,12 @@ final class NewsDetailPage: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var savedButton: UIButton!
     
-    var viewModel = NewsDetailViewModel()
+    lazy var viewModel = NewsDetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         preparePage()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {

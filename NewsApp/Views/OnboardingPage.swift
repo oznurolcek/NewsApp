@@ -15,9 +15,7 @@ final class OnboardingPage: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var viewModel = OnboardingViewModel()
-    
-    var isLogin: Bool = false
+    private lazy var viewModel = OnboardingViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +23,6 @@ final class OnboardingPage: UIViewController {
         prepareCollectionView()
         prepareButtons()
         preparePageControl()
-        
     }
     
     private func prepareCollectionView() {
@@ -52,29 +49,24 @@ final class OnboardingPage: UIViewController {
     }
     
     @IBAction func signUpButtonAct(_ sender: Any) {
-        isLogin = false
+        viewModel.isLogin = false
         UserDefaults.standard.set(true, forKey: "openedApp")
         let storyboard = UIStoryboard(name: "LoginPage", bundle: nil)
                 
         if let vc = storyboard.instantiateViewController(withIdentifier: "LoginPage") as? LoginPage {
-            
-            vc.isLogin = isLogin
-            
+            vc.isLogin = viewModel.isLogin
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
         }
-        
     }
     
     @IBAction func loginButtonAct(_ sender: Any) {
-        isLogin = true
+        viewModel.isLogin = true
         UserDefaults.standard.set(true, forKey: "openedApp")
         let storyboard = UIStoryboard(name: "LoginPage", bundle: nil)
                 
         if let vc = storyboard.instantiateViewController(withIdentifier: "LoginPage") as? LoginPage {
-            
-            vc.isLogin = isLogin
-            
+            vc.isLogin = viewModel.isLogin
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
         }
@@ -96,7 +88,6 @@ final class OnboardingPage: UIViewController {
         let indexPath = IndexPath(item: index, section: 0)
         collectionView.scrollToItem(at: indexPath, at: [.centeredHorizontally, .centeredVertically], animated: true)
     }
-
 }
 
 //MARK: UICOllectionView
@@ -121,11 +112,10 @@ extension OnboardingPage: UICollectionViewDelegateFlowLayout, UICollectionViewDa
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageWidth = scrollView.frame.size.width
         let page = Int(floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1)
-        pageControl.page = page
         
+        pageControl.page = page
         showItems(page != 2)
     }
-    
 }
 
 //MARK: UIPageControl

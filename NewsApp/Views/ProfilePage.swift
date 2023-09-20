@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 let defaults = UserDefaults.standard
 
@@ -19,11 +18,12 @@ final class ProfilePage: UIViewController {
     @IBOutlet weak var modeSwitchButton: UISwitch!
     @IBOutlet weak var backgroundView: UIView!
     
+    private lazy var viewModel = ProfileViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         preparePage()
-        
     }
     
     private func preparePage() {
@@ -32,40 +32,26 @@ final class ProfilePage: UIViewController {
         logoutButton.layer.cornerRadius = 16
         backgroundView.layer.cornerRadius = 24
         
-        if FirebaseAuth.Auth.auth().currentUser == nil {
+        if viewModel.currentUser == nil {
             logoutButton.isHidden = true
             emailLabel.text = ""
         } else {
             logoutButton.isHidden = false
-            emailLabel.text = FirebaseAuth.Auth.auth().currentUser?.email
+            emailLabel.text = viewModel.currentUser?.email
         }
         modeSwitchButton.isOn = defaults.bool(forKey: "darkModeEnabled")
-        
     }
     
     @IBAction func modeSwitchButtonAct(_ sender: UISwitch) {
-        
-        if #available(iOS 13.0, *) {
-            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-            let appDelegate = windowScene?.windows.first
-            if sender.isOn {
-                defaults.set(true, forKey: "darkModeEnabled")
-                DispatchQueue.main.asyncAfter(deadline: .now()){
-                    appDelegate?.overrideUserInterfaceStyle = .dark
-                }
-            } else {
-                defaults.set(false, forKey: "darkModeEnabled")
-                DispatchQueue.main.asyncAfter(deadline: .now()){
-                    appDelegate?.overrideUserInterfaceStyle = .light
-                }
-                
-            }
-            
+        if sender.isOn {
+            viewModel.darkMode()
+        } else {
+            viewModel.lightMode()
         }
     }
     
     @IBAction func logoutAct(_ sender: Any) {
-        try! FirebaseAuth.Auth.auth().signOut()
+        viewModel.logOut()
         let storyboard = UIStoryboard(name: "LoginPage", bundle: nil)
         let vc = (storyboard.instantiateViewController(withIdentifier: "LoginPage") as? LoginPage)!
         vc.modalPresentationStyle = .fullScreen

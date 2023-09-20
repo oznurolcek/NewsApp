@@ -8,12 +8,6 @@
 import UIKit
 import CoreData
 
-protocol NewsPageProtocol: AnyObject {
-    
-}
-
-let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
 final class NewsPage: UIViewController {
 
     @IBOutlet weak var newsTableView: UITableView!
@@ -21,24 +15,18 @@ final class NewsPage: UIViewController {
     @IBOutlet weak var sideMenuView: UIView!
     @IBOutlet weak var sideMenuLeadingConstraint: NSLayoutConstraint!
     
-    var viewModel = NewsViewModel()
-    
-    var isSearch = false
-    
-    var isMenuOpen: Bool = false
-    var beginPoint: CGFloat = 0.0
-    var difference: CGFloat = 0.0
+    lazy var viewModel = NewsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         prepareTableView()
         prepareSearchBar()
-        viewModel.darkMode()
         prepareNavBar()
+        viewModel.darkMode()
         viewModel.getNews(categories: viewModel.categories)
         viewModel.onSuccess = reloadTableView()
-        sideMenuView.isHidden = !isMenuOpen
+        sideMenuView.isHidden = !viewModel.isMenuOpen
     
     }
     
@@ -69,7 +57,6 @@ final class NewsPage: UIViewController {
         }
     }
    
-
 //MARK: Side Menu
     func showSideMenu() {
         UIView.animate(withDuration: 0.1, animations: {
@@ -80,8 +67,8 @@ final class NewsPage: UIViewController {
                 self.sideMenuLeadingConstraint.constant = 0
                 self.view.layoutIfNeeded()
             }) { (status) in
-                self.sideMenuView.isHidden = self.isMenuOpen
-                self.isMenuOpen = !self.isMenuOpen
+                self.sideMenuView.isHidden = self.viewModel.isMenuOpen
+                self.viewModel.isMenuOpen = !self.viewModel.isMenuOpen
             }
         }
     }
@@ -95,15 +82,14 @@ final class NewsPage: UIViewController {
                 self.sideMenuLeadingConstraint.constant = -280
                 self.view.layoutIfNeeded()
             }) { (status) in
-                self.sideMenuView.isHidden = !self.isMenuOpen
-                self.isMenuOpen = !self.isMenuOpen
+                self.sideMenuView.isHidden = !self.viewModel.isMenuOpen
+                self.viewModel.isMenuOpen = !self.viewModel.isMenuOpen
             }
         }
-        
     }
     
     @IBAction func openSideMenuAct(_ sender: Any) {
-        if !isMenuOpen {
+        if !viewModel.isMenuOpen {
             showSideMenu()
         } else {
             hideSideMenu()
@@ -115,43 +101,43 @@ final class NewsPage: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if isMenuOpen {
+        if viewModel.isMenuOpen {
             if let touch = touches.first {
                 let location = touch.location(in: sideMenuView)
-                beginPoint = location.x
+                viewModel.beginPoint = location.x
             }
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if isMenuOpen {
+        if viewModel.isMenuOpen {
             if let touch = touches.first {
                 let location = touch.location(in: sideMenuView)
-                let differenceFromBeginPoint = beginPoint - location.x
+                let differenceFromBeginPoint = viewModel.beginPoint - location.x
                 if (differenceFromBeginPoint > 0 && differenceFromBeginPoint < 280) {
                     self.sideMenuLeadingConstraint.constant = -differenceFromBeginPoint
-                    difference = differenceFromBeginPoint
+                    viewModel.difference = differenceFromBeginPoint
                 }
             }
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if isMenuOpen {
+        if viewModel.isMenuOpen {
             if touches.first != nil {
-                if (difference < 140) {
+                if (viewModel.difference < 140) {
                     UIView.animate(withDuration: 0.1, animations: {
                         self.sideMenuLeadingConstraint.constant = -290
                     }) { (status) in
-                        self.isMenuOpen = false
-                        self.sideMenuView.isHidden = !self.isMenuOpen
+                        self.viewModel.isMenuOpen = false
+                        self.sideMenuView.isHidden = !self.viewModel.isMenuOpen
                     }
                 } else {
                     UIView.animate(withDuration: 0.1, animations: {
                         self.sideMenuLeadingConstraint.constant = -10
                     }) { (status) in
-                        self.isMenuOpen = true
-                        self.sideMenuView.isHidden = !self.isMenuOpen
+                        self.viewModel.isMenuOpen = true
+                        self.sideMenuView.isHidden = !self.viewModel.isMenuOpen
                     }
                 }
             }
@@ -163,33 +149,8 @@ final class NewsPage: UIViewController {
 extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol{
     func saveNews(indexPath: IndexPath) {
         
-        let context = appDelegate.persistentContainer.viewContext
+        viewModel.saveNews(indexPath: indexPath)
         
-        let fetchRequest: NSFetchRequest<SavedNews> = SavedNews.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "title == %@", (viewModel.cellForRow(at: indexPath)?.title)!)
-        
-        do {
-            let existingNews = try context.fetch(fetchRequest)
-            
-            if let newsToDelete = existingNews.first {
-                defaults.set(false, forKey: "isSaved")
-                context.delete(newsToDelete)
-                appDelegate.saveContext()
-                
-            } else {
-                defaults.set(true, forKey: "isSaved")
-                let savedNews = SavedNews(context: context)
-                savedNews.title = viewModel.cellForRow(at: indexPath)?.title
-                savedNews.urlToImage = viewModel.cellForRow(at: indexPath)?.urlToImage
-                savedNews.publishedAt = viewModel.cellForRow(at: indexPath)?.publishedAt
-                savedNews.content = viewModel.cellForRow(at: indexPath)?.description
-
-                appDelegate.saveContext()
-               
-            }
-        } catch {
-            print(error)
-        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -211,7 +172,6 @@ extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol
         cell.indexPath = indexPath
         
         return cell
-
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -231,7 +191,6 @@ extension NewsPage: UITableViewDelegate, UITableViewDataSource, NewsCellProtocol
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
     }
-    
 }
 
 //MARK: UISearchBar

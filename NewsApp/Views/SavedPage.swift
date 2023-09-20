@@ -11,7 +11,8 @@ final class SavedPage: UIViewController {
 
     @IBOutlet weak var savedTableView: UITableView!
     
-    var viewModel = SavedNewsViewModel()
+    private lazy var viewModel = SavedNewsViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
