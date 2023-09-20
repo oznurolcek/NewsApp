@@ -50,7 +50,6 @@ final class OnboardingPage: UIViewController {
     
     @IBAction func signUpButtonAct(_ sender: Any) {
         viewModel.isLogin = false
-        UserDefaults.standard.set(true, forKey: "openedApp")
         let storyboard = UIStoryboard(name: "LoginPage", bundle: nil)
                 
         if let vc = storyboard.instantiateViewController(withIdentifier: "LoginPage") as? LoginPage {
@@ -62,7 +61,6 @@ final class OnboardingPage: UIViewController {
     
     @IBAction func loginButtonAct(_ sender: Any) {
         viewModel.isLogin = true
-        UserDefaults.standard.set(true, forKey: "openedApp")
         let storyboard = UIStoryboard(name: "LoginPage", bundle: nil)
                 
         if let vc = storyboard.instantiateViewController(withIdentifier: "LoginPage") as? LoginPage {

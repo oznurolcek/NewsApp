@@ -31,6 +31,7 @@ class LoginSegmentViewController: UIViewController {
                 if error != nil {
                     self.alertDialog(title: "Error", message: "Email or password is incorrect")
                 } else {
+                    UserDefaults.standard.set(true, forKey: "openedApp")
                     let storyboard = UIStoryboard(name: "NewsPage", bundle: nil)
                     let vc = (storyboard.instantiateViewController(withIdentifier: "CustomTabBarController") as? CustomTabBarController)!
                     vc.modalPresentationStyle = .fullScreen
